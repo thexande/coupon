@@ -54,12 +54,12 @@
 		703C22EDCAE20C7A0A07D87E /* Pods_couponUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_couponUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3DCDAC00133C54DF1962F3E /* Pods-couponTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-couponTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-couponTests/Pods-couponTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B0204C231DCE4549009703B2 /* coupon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coupon.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0204C261DCE4549009703B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B0204C261DCE4549009703B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = coupon/AppDelegate.swift; sourceTree = "<group>"; };
 		B0204C281DCE4549009703B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B0204C2B1DCE4549009703B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B0204C2D1DCE4549009703B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B0204C2D1DCE4549009703B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = coupon/Assets.xcassets; sourceTree = "<group>"; };
 		B0204C301DCE4549009703B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B0204C321DCE4549009703B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0204C321DCE4549009703B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = coupon/Info.plist; sourceTree = "<group>"; };
 		B0204C371DCE4549009703B2 /* couponTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = couponTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0204C3B1DCE4549009703B2 /* couponTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = couponTests.swift; sourceTree = "<group>"; };
 		B0204C3D1DCE4549009703B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -122,7 +122,6 @@
 		B0204C1A1DCE4549009703B2 = {
 			isa = PBXGroup;
 			children = (
-				B0204C561DCE45A8009703B2 /* Podfile */,
 				B0204C251DCE4549009703B2 /* coupon */,
 				B0204C3A1DCE4549009703B2 /* couponTests */,
 				B0204C451DCE4549009703B2 /* couponUITests */,
@@ -145,17 +144,13 @@
 		B0204C251DCE4549009703B2 /* coupon */ = {
 			isa = PBXGroup;
 			children = (
+				B069D3BF1DCE8D14004EBF13 /* Supporting */,
+				B069D3BE1DCE8CFD004EBF13 /* Application */,
 				B0204C671DCE5472009703B2 /* JSON */,
 				B0204C5A1DCE4629009703B2 /* Helpers */,
 				B0204C591DCE4623009703B2 /* Views */,
 				B0204C621DCE46DB009703B2 /* Models */,
 				B0204C581DCE461A009703B2 /* Controllers */,
-				B0204C261DCE4549009703B2 /* AppDelegate.swift */,
-				B0204C281DCE4549009703B2 /* ViewController.swift */,
-				B0204C2A1DCE4549009703B2 /* Main.storyboard */,
-				B0204C2D1DCE4549009703B2 /* Assets.xcassets */,
-				B0204C2F1DCE4549009703B2 /* LaunchScreen.storyboard */,
-				B0204C321DCE4549009703B2 /* Info.plist */,
 			);
 			path = coupon;
 			sourceTree = "<group>";
@@ -181,6 +176,7 @@
 		B0204C581DCE461A009703B2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B0204C281DCE4549009703B2 /* ViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -188,6 +184,8 @@
 		B0204C591DCE4623009703B2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B0204C2F1DCE4549009703B2 /* LaunchScreen.storyboard */,
+				B0204C2A1DCE4549009703B2 /* Main.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -228,6 +226,26 @@
 				B0204C801DCE6AA6009703B2 /* OfferTranslatorHelper.swift */,
 			);
 			name = Realm;
+			sourceTree = "<group>";
+		};
+		B069D3BE1DCE8CFD004EBF13 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				B0204C261DCE4549009703B2 /* AppDelegate.swift */,
+			);
+			name = Application;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		B069D3BF1DCE8D14004EBF13 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				B0204C561DCE45A8009703B2 /* Podfile */,
+				B0204C321DCE4549009703B2 /* Info.plist */,
+				B0204C2D1DCE4549009703B2 /* Assets.xcassets */,
+			);
+			name = Supporting;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		C013BF58D6F29BF29603A519 /* Pods */ = {

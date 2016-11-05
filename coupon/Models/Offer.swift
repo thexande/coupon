@@ -12,5 +12,5 @@ import RealmSwift
 class Offer: Object {
     dynamic var name = ""
     dynamic var id = 0
-    let retailers = LinkingObjects(fromType: Retailer.self, property: "offers")
+    //let retailers = LinkingObjects(fromType: Retailer.self, property: "offers")
 }

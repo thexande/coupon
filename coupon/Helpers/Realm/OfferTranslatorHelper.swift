@@ -13,10 +13,12 @@ import RealmSwift
 class OfferTranslatorHelper {
     static func translateOffer(data: JSON?) -> [Offer]? {
         var offers = [Offer]()
+        let realm = try! Realm()
         var allRetailers = realm.objects(Retailer.self)
         
         for offerObject in (data?.array)! {
-            let linkedRetailers = allRetailers.filter(NSPredicate(format: "id = %@", 25))
+            let predicate = NSPredicate(format: "id = %d", 25)
+            let linkedRetailers = allRetailers.filter(predicate)
             
             print(linkedRetailers, "linkded here")
             let offer = Offer()

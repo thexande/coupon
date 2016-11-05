@@ -1,5 +1,4 @@
-{
-  "retailers": [
+[
     {
       "allowed_viewports": [],
       "any_brand_full_url": "http://product-images.ibotta.com/admin/11262014/any-brand-full.png",
@@ -9516,4 +9515,3 @@
       "linked": false
     }
   ]
-}

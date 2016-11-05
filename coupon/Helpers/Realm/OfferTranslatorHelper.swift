@@ -14,33 +14,27 @@ class OfferTranslatorHelper {
     static func translateOffer(data: JSON?) -> [Offer]? {
         var offers = [Offer]()
         let realm = try! Realm()
-        var allRetailers = realm.objects(Retailer.self)
-        
-        for offerObject in (data?.array)! {
+        let allRetailers = realm.objects(Retailer.self)
+        print("beginning relation map")
+        for offerObject in (data?.arrayValue.prefix(100))! {
             let offer = Offer()
             offer.name = offerObject["name"].stringValue
             offer.id = offerObject["id"].intValue
             
-            
-            var linkedRetailers = [Retailer]()
-            let retailerIds = offerObject["retailers"].arrayValue
-            for id in retailerIds {
-                let predicate = NSPredicate(format: "id = %d", id.intValue)
+            let retailerIds = offerObject["retailers"].arrayValue.map { $0.intValue }
+                let predicate = NSPredicate(format: "id IN %@", retailerIds)
                 let linkedRetailersFromId = allRetailers.filter(predicate)
                 for retailer in linkedRetailersFromId {
-          
-                        try! realm.write {
-                            retailer.offers.append(offer)
-                        }
-                    
-                    
-                    
+                    // write relation
+                    try! realm.write {
+                        retailer.offers.append(offer)
+                    }
                 }
-            }
             
             
             offers.append(offer)
         }
+        print("end relation map")
         return offers
     }
 }

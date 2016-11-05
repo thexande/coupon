@@ -19,5 +19,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "coupon/Helpers/Realm/OfferTranslatorHelper.swift"
+            timestampString = "500074674.09333"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "translateOffer(data:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static coupon.OfferTranslatorHelper.translateOffer (data : Swift.Optional&lt;SwiftyJSON.JSON&gt;) -&gt; Swift.Optional&lt;Swift.Array&lt;coupon.Offer&gt;&gt;"
+                  moduleName = "coupon"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexandermurphy/Documents/IBOTTA/coupon/coupon/Helpers/Realm/OfferTranslatorHelper.swift"
+                  timestampString = "500074674.552827"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "516">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static coupon.OfferTranslatorHelper.translateOffer (data : Swift.Optional&lt;SwiftyJSON.JSON&gt;) -&gt; Swift.Optional&lt;Swift.Array&lt;coupon.Offer&gt;&gt;"
+                  moduleName = "coupon"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexandermurphy/Documents/IBOTTA/coupon/coupon/Helpers/Realm/OfferTranslatorHelper.swift"
+                  timestampString = "500074674.557959"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "5724">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

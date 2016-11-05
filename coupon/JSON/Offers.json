@@ -1,5 +1,4 @@
-{
-  "offers": [
+[
     {
       "bonus_ids": [],
       "categories": [
@@ -99420,4 +99419,3 @@
       "expired": false
     }
   ]
-}

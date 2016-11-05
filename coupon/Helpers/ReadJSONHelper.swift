@@ -16,7 +16,6 @@ class ReadJSONHelper {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
                 let jsonObj = JSON(data: data)
                 if jsonObj != JSON.null {
-                    //print("jsonData:\(jsonObj)")
                     return jsonObj
                 }
             } catch let error {
@@ -31,7 +30,6 @@ class ReadJSONHelper {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
                 let jsonObj = JSON(data: data)
                 if jsonObj != JSON.null {
-                    //print("jsonData:\(jsonObj)")
                     return jsonObj
                 }
             } catch let error {

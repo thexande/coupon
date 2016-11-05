@@ -7,13 +7,21 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print(ReadJSONHelper.getAllRetailers()!.arrayValue.count)
+
+        let processedRetailers = RetailerTranslatorHelper.translateRetailer(data: ReadJSONHelper.getAllRetailers()!)
+        RealmDatabaseHelper.writeRetailers(retailers: processedRetailers!)
+        
+        let processedOffers = OfferTranslatorHelper.translateOffer(data: ReadJSONHelper.getAllOffers()!)
+        RealmDatabaseHelper.writeRetailers(retailers: processedOffers!)
+        
+        //print(ReadJSONHelper.getAllRetailers()!.arrayValue.count)
     }
 
     override func didReceiveMemoryWarning() {

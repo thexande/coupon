@@ -22,6 +22,9 @@
 		B0204C731DCE5583009703B2 /* Store Locations.json in Resources */ = {isa = PBXBuildFile; fileRef = B0204C6A1DCE547B009703B2 /* Store Locations.json */; };
 		B0204C771DCE5620009703B2 /* ReadJSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0204C761DCE5620009703B2 /* ReadJSONHelper.swift */; };
 		B0204C791DCE57A4009703B2 /* Retailers.json in Resources */ = {isa = PBXBuildFile; fileRef = B0204C781DCE57A4009703B2 /* Retailers.json */; };
+		B0204C7D1DCE5F92009703B2 /* RetailerTranslatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0204C7C1DCE5F92009703B2 /* RetailerTranslatorHelper.swift */; };
+		B0204C7F1DCE629C009703B2 /* RealmDatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0204C7E1DCE629C009703B2 /* RealmDatabaseHelper.swift */; };
+		B0204C811DCE6AA6009703B2 /* OfferTranslatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0204C801DCE6AA6009703B2 /* OfferTranslatorHelper.swift */; };
 		BC16E86EF8DA5AB3F661DA14 /* Pods_coupon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F43CED56337DE44F7D5EECF /* Pods_coupon.framework */; };
 		CF148B399B17F67663382A39 /* Pods_couponUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703C22EDCAE20C7A0A07D87E /* Pods_couponUITests.framework */; };
 /* End PBXBuildFile section */
@@ -70,6 +73,9 @@
 		B0204C6A1DCE547B009703B2 /* Store Locations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "Store Locations.json"; path = "JSON/Store Locations.json"; sourceTree = "<group>"; };
 		B0204C761DCE5620009703B2 /* ReadJSONHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadJSONHelper.swift; path = Helpers/ReadJSONHelper.swift; sourceTree = "<group>"; };
 		B0204C781DCE57A4009703B2 /* Retailers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Retailers.json; sourceTree = "<group>"; };
+		B0204C7C1DCE5F92009703B2 /* RetailerTranslatorHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RetailerTranslatorHelper.swift; path = Helpers/Realm/RetailerTranslatorHelper.swift; sourceTree = "<group>"; };
+		B0204C7E1DCE629C009703B2 /* RealmDatabaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmDatabaseHelper.swift; path = Helpers/Realm/RealmDatabaseHelper.swift; sourceTree = "<group>"; };
+		B0204C801DCE6AA6009703B2 /* OfferTranslatorHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OfferTranslatorHelper.swift; path = Helpers/Realm/OfferTranslatorHelper.swift; sourceTree = "<group>"; };
 		D9DA6F54115467ABF7554BBA /* Pods-couponUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-couponUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-couponUITests/Pods-couponUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F9E68CE6763F35ED723C6A88 /* Pods-couponTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-couponTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-couponTests/Pods-couponTests.release.xcconfig"; sourceTree = "<group>"; };
 		FC47DAD94F49C0724506AF9E /* Pods-coupon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coupon.release.xcconfig"; path = "Pods/Target Support Files/Pods-coupon/Pods-coupon.release.xcconfig"; sourceTree = "<group>"; };
@@ -189,6 +195,7 @@
 		B0204C5A1DCE4629009703B2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				B0204C7B1DCE5F6D009703B2 /* Realm */,
 				B0204C761DCE5620009703B2 /* ReadJSONHelper.swift */,
 			);
 			name = Helpers;
@@ -211,6 +218,16 @@
 				B0204C6A1DCE547B009703B2 /* Store Locations.json */,
 			);
 			name = JSON;
+			sourceTree = "<group>";
+		};
+		B0204C7B1DCE5F6D009703B2 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				B0204C7C1DCE5F92009703B2 /* RetailerTranslatorHelper.swift */,
+				B0204C7E1DCE629C009703B2 /* RealmDatabaseHelper.swift */,
+				B0204C801DCE6AA6009703B2 /* OfferTranslatorHelper.swift */,
+			);
+			name = Realm;
 			sourceTree = "<group>";
 		};
 		C013BF58D6F29BF29603A519 /* Pods */ = {
@@ -500,9 +517,12 @@
 			files = (
 				B0204C641DCE4EF3009703B2 /* Offer.swift in Sources */,
 				B0204C661DCE4F01009703B2 /* Retailer.swift in Sources */,
+				B0204C811DCE6AA6009703B2 /* OfferTranslatorHelper.swift in Sources */,
 				B0204C291DCE4549009703B2 /* ViewController.swift in Sources */,
 				B0204C271DCE4549009703B2 /* AppDelegate.swift in Sources */,
 				B0204C771DCE5620009703B2 /* ReadJSONHelper.swift in Sources */,
+				B0204C7F1DCE629C009703B2 /* RealmDatabaseHelper.swift in Sources */,
+				B0204C7D1DCE5F92009703B2 /* RetailerTranslatorHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

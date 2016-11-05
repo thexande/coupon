@@ -7,8 +7,11 @@
 //
 
 import Foundation
-import SwiftyJSON
+import RealmSwift
 
-class Retailer {
 
+class Retailer: Object {
+    dynamic var name = ""
+    dynamic var id = 0
+    let offers = List<Offer>()
 }

@@ -13,5 +13,5 @@ import RealmSwift
 class Retailer: Object {
     dynamic var name = ""
     dynamic var id = 0
-    //let offers = List<Offer>()
+    let offers = List<Offer>()
 }

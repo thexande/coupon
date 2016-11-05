@@ -17,13 +17,28 @@ class OfferTranslatorHelper {
         var allRetailers = realm.objects(Retailer.self)
         
         for offerObject in (data?.array)! {
-            let predicate = NSPredicate(format: "id = %d", 25)
-            let linkedRetailers = allRetailers.filter(predicate)
-            
-            print(linkedRetailers, "linkded here")
             let offer = Offer()
             offer.name = offerObject["name"].stringValue
             offer.id = offerObject["id"].intValue
+            
+            
+            var linkedRetailers = [Retailer]()
+            let retailerIds = offerObject["retailers"].arrayValue
+            for id in retailerIds {
+                let predicate = NSPredicate(format: "id = %d", id.intValue)
+                let linkedRetailersFromId = allRetailers.filter(predicate)
+                for retailer in linkedRetailersFromId {
+          
+                        try! realm.write {
+                            retailer.offers.append(offer)
+                        }
+                    
+                    
+                    
+                }
+            }
+            
+            
             offers.append(offer)
         }
         return offers

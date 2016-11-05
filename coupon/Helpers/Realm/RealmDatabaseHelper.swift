@@ -27,4 +27,5 @@ class RealmDatabaseHelper {
             }
         }
     }
+    //static func writeRetailerRelations()
 }

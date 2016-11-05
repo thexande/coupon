@@ -63,7 +63,7 @@
 		B0204C421DCE4549009703B2 /* couponUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = couponUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0204C461DCE4549009703B2 /* couponUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = couponUITests.swift; sourceTree = "<group>"; };
 		B0204C481DCE4549009703B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B0204C561DCE45A8009703B2 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		B0204C561DCE45A8009703B2 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B0204C631DCE4EF3009703B2 /* Offer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Offer.swift; path = Models/Offer.swift; sourceTree = "<group>"; };
 		B0204C651DCE4F01009703B2 /* Retailer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Retailer.swift; path = Models/Retailer.swift; sourceTree = "<group>"; };
 		B0204C681DCE547B009703B2 /* Offers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Offers.json; path = JSON/Offers.json; sourceTree = "<group>"; };

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-coupon.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-couponTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-couponUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>084D88C9823298EC861FAFCF0A9330D9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>82D7271F24690B7E087A22E92F8D4997</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B1EAB538E3F4B4E549378FA005F1571A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F9F9EA021D4FB1D541FBFF35E3B0D3BB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

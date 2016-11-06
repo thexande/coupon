@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>DZNEmptyDataSet.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-coupon.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -29,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,22 +52,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>118A546494F74CD425A0BC7F554C0ACA</key>
+		<key>166282D619FA2E8FB32497AB9373D573</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>641453CE11ACA558946ABC248B171A7F</key>
+		<key>16FB872D0D2D4BA0F378AB34D47CF95F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8871203F3A3492CBF3AC1F4277FFFE44</key>
+		<key>2256BEF51E119309916189DC6072339E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A2B7FFFE4EF2E1F146BC5DFC6BB19BBE</key>
+		<key>5259B9BE70F45383A5538ED1E2C02DEF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>94928435DB2A983227080BD345109103</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ED15FE191675B24E3F8AE0E260AF111D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

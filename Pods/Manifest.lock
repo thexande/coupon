@@ -1,14 +1,20 @@
 PODS:
+  - DZNEmptyDataSet (1.8.1)
   - Realm (2.0.3):
     - Realm/Headers (= 2.0.3)
   - Realm/Headers (2.0.3)
   - RealmSwift (2.0.3):
     - Realm (= 2.0.3)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
   - SwiftyJSON (3.1.1)
 
 DEPENDENCIES:
+  - DZNEmptyDataSet
   - Realm (from `https://github.com/realm/realm-cocoa.git`, branch `master`)
   - RealmSwift (from `https://github.com/realm/realm-cocoa.git`, branch `master`)
+  - SDWebImage
   - SwiftyJSON
 
 EXTERNAL SOURCES:
@@ -32,10 +38,12 @@ CHECKOUT OPTIONS:
     :submodules: true
 
 SPEC CHECKSUMS:
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Realm: 5f008bfe3c8c47142eddfc30b8c1584cde22db24
   RealmSwift: 79a9bc83e7ef4fbde17e0f303c5fadb99264a6be
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-PODFILE CHECKSUM: 5a557cd3571efccea29fb0da7849b617fd9e977b
+PODFILE CHECKSUM: ba314b900a366876b0a8ad5d43fd1e3e783fccfc
 
 COCOAPODS: 1.0.1

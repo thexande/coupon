@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 import MapKit
+import CoreLocation
 
 
 class LocationsViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
@@ -16,9 +17,11 @@ class LocationsViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     public var selectedRetailer: Object!
     public var retailerLocations: List<Location>?
     
-    var locationManager:CLLocationManager?
-    let distanceSpan:Double = 500
-    var lastLocation: CLLocation?
+    private let locManager = CLLocationManager()
+    
+    private var userLocation: CLLocationCoordinate2D?
+    private var userLatitude: Float64 = 0
+    private var userLongitude: Float64 = 0
     
     @IBOutlet weak var locationsMapView: MKMapView!
     
@@ -26,25 +29,38 @@ class LocationsViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         super.viewDidLoad()
         // set retailer locations
         retailerLocations = selectedRetailer.value(forKey: "locations") as? List<Location>
-        // set map view delegate
-        if let mapView = self.locationsMapView {
-            mapView.delegate = self
+
+        //get user location
+        func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+            switch status {
+            case .notDetermined:
+                // If status has not yet been determied, ask for authorization
+                manager.requestWhenInUseAuthorization()
+                break
+            case .authorizedWhenInUse:
+                // If authorized when in use
+                manager.startUpdatingLocation()
+                break
+            case .authorizedAlways:
+                // If always authorized
+                manager.startUpdatingLocation()
+                break
+            case .restricted:
+                // If restricted by e.g. parental controls. User can't enable Location Services
+                break
+            case .denied:
+                // If user denied your app access to Location Services, but can grant access from Settings.app
+                break
+            }
         }
-        // Do any additional setup after loading the view.
+        // set region and get user location
+        configureUserLocation()
         //plot locations
         plotRetailers(locations: retailerLocations!)
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if locationManager == nil {
-            locationManager = CLLocationManager()
-            
-            locationManager!.delegate = self
-            locationManager!.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-            locationManager!.requestAlwaysAuthorization()
-            locationManager!.distanceFilter = 50 // Don't send location updates with a distance smaller than 50 meters between them
-            locationManager!.startUpdatingLocation()
-        }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,12 +68,37 @@ class LocationsViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         // Dispose of any resources that can be recreated.
     }
     
-    // begin location functions
-    private func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
-        if let mapView = self.locationsMapView {
-            let region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, distanceSpan, distanceSpan)
-            mapView.setRegion(region, animated: true)
+    // begin location / map view functions
+    func configureUserLocation() {
+        locManager.delegate = self
+        // Getting user permission for location data
+        locManager.requestAlwaysAuthorization()
+        locManager.requestWhenInUseAuthorization()
+        locManager.desiredAccuracy = kCLLocationAccuracyBest
+        locManager.startMonitoringSignificantLocationChanges()
+        
+        if locManager.location?.coordinate != nil {
+            let location:CLLocationCoordinate2D = locManager.location!.coordinate
+            userLocation = location
+            centerMap(center: userLocation!)
         }
+    }
+    
+    func saveCurrentLocation(center:CLLocationCoordinate2D){
+        userLocation = center
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        centerMap(center: locValue)
+    }
+    
+    func centerMap(center:CLLocationCoordinate2D) {
+        self.saveCurrentLocation(center: center)
+        let spanX = 0.3
+        let spanY = 0.3
+        let newRegion = MKCoordinateRegion(center:center , span: MKCoordinateSpanMake(spanX, spanY))
+        locationsMapView.setRegion(newRegion, animated: true)
     }
     
     func plotRetailers(locations: List<Location>){
@@ -65,29 +106,21 @@ class LocationsViewController: UIViewController, MKMapViewDelegate, CLLocationMa
             let locationLatitude = location["latitude"] as! Double
             let locationLongitude = location["longitude"] as! Double
             let locationTitle = selectedRetailer["name"] as! String
-            
             let annotaiton = LocationAnnotation(title: locationTitle, subtitle: "woot", coordinate: CLLocationCoordinate2D(latitude: locationLatitude, longitude: locationLongitude))
             locationsMapView.addAnnotation(annotaiton)
-            
         }
+        
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?
         {
-            if annotation.isKind(of: MKUserLocation.self)
-            {
+            if annotation.isKind(of: MKUserLocation.self) {
                 return nil
             }
-            
             var view = mapView.dequeueReusableAnnotationView(withIdentifier: "annotationIdentifier")
-            
-            if view == nil
-            {
+            if view == nil {
                 view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "annotationIdentifier")
             }
-            
             view?.canShowCallout = true
-            
             return view
         }
     }
-
 }

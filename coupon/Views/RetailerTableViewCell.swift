@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 class RetailerTableViewCell: UITableViewCell {
-
+    public var retailer: Object?
+    
+    @IBOutlet weak var retailerNameLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +23,7 @@ class RetailerTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        self.retailerNameLabel.text = retailer?.value(forKey: "name") as! String?
     }
     
 }

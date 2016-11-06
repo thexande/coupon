@@ -73,16 +73,22 @@ class RetailersMasterViewController:
     // table view methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if shouldShowSearchResults {
-            return self.filteredRetailers!.count
+            if(self.filteredRetailers == nil) {
+                return 0
+            } else {
+                return self.filteredRetailers!.count
+            }
         }
         else {
             return self.allRetailers!.count
         }
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RetailerCell", for: indexPath) as! RetailerTableViewCell
         if shouldShowSearchResults {
-//            let currentCar = self.filteredCarArray?[indexPath.row]
+            let currentRetailer = self.allRetailers?[indexPath.row]
+            cell.retailer = currentRetailer
 //
 //            let remoteImageURLString = currentCar?["image_url"].stringValue
 //            if (remoteImageURLString != nil) {
@@ -93,6 +99,7 @@ class RetailersMasterViewController:
         }
         else {
             let currentRetailer = self.allRetailers?[indexPath.row]
+            cell.retailer = currentRetailer
             
 //            
 //            let currentCar = self.carDataArray?[indexPath.row]
@@ -109,7 +116,9 @@ class RetailersMasterViewController:
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(self.allRetailers?[indexPath.row])
+    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100.0
     }

@@ -9,6 +9,8 @@ target 'coupon' do
     pod 'SwiftyJSON'
     pod 'Realm', git: 'https://github.com/realm/realm-cocoa.git', branch: 'master', :submodules => true
     pod 'RealmSwift', :git => 'https://github.com/realm/realm-cocoa.git', :branch => 'master', :submodules => true
+    pod 'SDWebImage'
+    pod 'DZNEmptyDataSet'
 
   target 'couponTests' do
     inherit! :search_paths

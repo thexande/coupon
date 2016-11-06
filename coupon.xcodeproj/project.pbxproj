@@ -29,6 +29,8 @@
 		B069D3C41DCE982E004EBF13 /* CustomSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069D3C31DCE982E004EBF13 /* CustomSearchController.swift */; };
 		B069D3C61DCE9855004EBF13 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069D3C51DCE9855004EBF13 /* CustomSearchBar.swift */; };
 		B069D3C81DCE988B004EBF13 /* RetailersMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069D3C71DCE988B004EBF13 /* RetailersMasterViewController.swift */; };
+		B069D3CB1DCEB8A9004EBF13 /* RetailerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069D3C91DCEB8A9004EBF13 /* RetailerTableViewCell.swift */; };
+		B069D3CC1DCEB8A9004EBF13 /* RetailerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B069D3CA1DCEB8A9004EBF13 /* RetailerTableViewCell.xib */; };
 		BC16E86EF8DA5AB3F661DA14 /* Pods_coupon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F43CED56337DE44F7D5EECF /* Pods_coupon.framework */; };
 		CF148B399B17F67663382A39 /* Pods_couponUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703C22EDCAE20C7A0A07D87E /* Pods_couponUITests.framework */; };
 /* End PBXBuildFile section */
@@ -84,6 +86,8 @@
 		B069D3C31DCE982E004EBF13 /* CustomSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomSearchController.swift; path = Controllers/SearchControllers/CustomSearchController.swift; sourceTree = "<group>"; };
 		B069D3C51DCE9855004EBF13 /* CustomSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		B069D3C71DCE988B004EBF13 /* RetailersMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RetailersMasterViewController.swift; path = Controllers/RetailersMasterViewController.swift; sourceTree = "<group>"; };
+		B069D3C91DCEB8A9004EBF13 /* RetailerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RetailerTableViewCell.swift; path = Views/RetailerTableViewCell.swift; sourceTree = "<group>"; };
+		B069D3CA1DCEB8A9004EBF13 /* RetailerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RetailerTableViewCell.xib; path = Views/RetailerTableViewCell.xib; sourceTree = "<group>"; };
 		D9DA6F54115467ABF7554BBA /* Pods-couponUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-couponUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-couponUITests/Pods-couponUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F9E68CE6763F35ED723C6A88 /* Pods-couponTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-couponTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-couponTests/Pods-couponTests.release.xcconfig"; sourceTree = "<group>"; };
 		FC47DAD94F49C0724506AF9E /* Pods-coupon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coupon.release.xcconfig"; path = "Pods/Target Support Files/Pods-coupon/Pods-coupon.release.xcconfig"; sourceTree = "<group>"; };
@@ -197,6 +201,8 @@
 			children = (
 				B0204C2F1DCE4549009703B2 /* LaunchScreen.storyboard */,
 				B0204C2A1DCE4549009703B2 /* Main.storyboard */,
+				B069D3C91DCEB8A9004EBF13 /* RetailerTableViewCell.swift */,
+				B069D3CA1DCEB8A9004EBF13 /* RetailerTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -404,6 +410,7 @@
 				B0204C731DCE5583009703B2 /* Store Locations.json in Resources */,
 				B0204C311DCE4549009703B2 /* LaunchScreen.storyboard in Resources */,
 				B0204C2E1DCE4549009703B2 /* Assets.xcassets in Resources */,
+				B069D3CC1DCEB8A9004EBF13 /* RetailerTableViewCell.xib in Resources */,
 				B0204C571DCE45A8009703B2 /* Podfile in Resources */,
 				B0204C2C1DCE4549009703B2 /* Main.storyboard in Resources */,
 			);
@@ -564,6 +571,7 @@
 				B0204C771DCE5620009703B2 /* ReadJSONHelper.swift in Sources */,
 				B0204C7F1DCE629C009703B2 /* RealmDatabaseHelper.swift in Sources */,
 				B069D3C61DCE9855004EBF13 /* CustomSearchBar.swift in Sources */,
+				B069D3CB1DCEB8A9004EBF13 /* RetailerTableViewCell.swift in Sources */,
 				B0204C7D1DCE5F92009703B2 /* RetailerTranslatorHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,17 +11,12 @@ import RealmSwift
 import MapKit
 import CoreLocation
 
-
 class LocationsViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     public var selectedRetailer: Object!
     public var retailerLocations: List<Location>?
-    
     private let locManager = CLLocationManager()
-    
     private var userLocation: CLLocationCoordinate2D?
-    private var userLatitude: Float64 = 0
-    private var userLongitude: Float64 = 0
     
     @IBOutlet weak var locationsMapView: MKMapView!
     
@@ -29,7 +24,6 @@ class LocationsViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         super.viewDidLoad()
         // set retailer locations
         retailerLocations = selectedRetailer.value(forKey: "locations") as? List<Location>
-
         //get user location
         func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
             switch status {
@@ -76,7 +70,6 @@ class LocationsViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         locManager.requestWhenInUseAuthorization()
         locManager.desiredAccuracy = kCLLocationAccuracyBest
         locManager.startMonitoringSignificantLocationChanges()
-        
         if locManager.location?.coordinate != nil {
             let location:CLLocationCoordinate2D = locManager.location!.coordinate
             userLocation = location

@@ -20,6 +20,28 @@ class OfferTranslatorHelper {
             let offer = Offer()
             offer.name = offerObject["name"].stringValue
             offer.id = offerObject["id"].intValue
+            offer.offer_description = offerObject["description"].stringValue
+            offer.expiration = offerObject["expiration"].stringValue
+            offer.large_url = offerObject["large_url"].stringValue
+            offer.launched_at = offerObject["launched_at"].stringValue
+            offer.purchase_type = offerObject["purchase_type"].stringValue
+            
+            // create rewards
+            let rewardsArray = offerObject["rewards"].arrayValue
+            for reward in rewardsArray {
+                let rewardObject = Reward()
+                rewardObject.content = reward["content"].stringValue
+                
+                // create options
+                let optionsArray = offerObject["rewards"]["options"].arrayValue
+                for option in optionsArray {
+                    let optionObject = Option()
+                    optionObject.content = option["content"].stringValue
+                    optionObject.id = option["id"].intValue
+                    rewardObject.options.append(optionObject)
+                }
+                offer.rewards.append(rewardObject)
+            }
             
             let retailerIds = offerObject["retailers"].arrayValue.map { $0.intValue }
                 let predicate = NSPredicate(format: "id IN %@", retailerIds)

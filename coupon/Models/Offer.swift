@@ -10,7 +10,13 @@ import Foundation
 import RealmSwift
 
 class Offer: Object {
+    let retailers = LinkingObjects(fromType: Retailer.self, property: "offers")
     dynamic var name = ""
     dynamic var id = 0
-    let retailers = LinkingObjects(fromType: Retailer.self, property: "offers")
+    dynamic var offer_description = ""
+    dynamic var expiration = ""
+    dynamic var large_url = ""
+    dynamic var launched_at = ""
+    dynamic var purchase_type = ""
+    let rewards = List<Reward>()
 }

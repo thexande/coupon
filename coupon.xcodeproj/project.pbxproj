@@ -41,6 +41,8 @@
 		B069D3DC1DCFC6E9004EBF13 /* OfferDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069D3DB1DCFC6E9004EBF13 /* OfferDetailViewController.swift */; };
 		B069D3DE1DCFCEAB004EBF13 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069D3DD1DCFCEAB004EBF13 /* LocationHelper.swift */; };
 		B069D3E01DCFD74B004EBF13 /* LocationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069D3DF1DCFD74B004EBF13 /* LocationAnnotation.swift */; };
+		B069D3E21DCFE4E7004EBF13 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069D3E11DCFE4E7004EBF13 /* Reward.swift */; };
+		B069D3E51DCFE537004EBF13 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069D3E41DCFE537004EBF13 /* Option.swift */; };
 		BC16E86EF8DA5AB3F661DA14 /* Pods_coupon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F43CED56337DE44F7D5EECF /* Pods_coupon.framework */; };
 		CF148B399B17F67663382A39 /* Pods_couponUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703C22EDCAE20C7A0A07D87E /* Pods_couponUITests.framework */; };
 /* End PBXBuildFile section */
@@ -108,6 +110,8 @@
 		B069D3DB1DCFC6E9004EBF13 /* OfferDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OfferDetailViewController.swift; path = Controllers/OfferDetailViewController.swift; sourceTree = "<group>"; };
 		B069D3DD1DCFCEAB004EBF13 /* LocationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationHelper.swift; path = Helpers/LocationHelper.swift; sourceTree = "<group>"; };
 		B069D3DF1DCFD74B004EBF13 /* LocationAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationAnnotation.swift; path = Helpers/LocationAnnotation.swift; sourceTree = "<group>"; };
+		B069D3E11DCFE4E7004EBF13 /* Reward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reward.swift; path = Models/Reward.swift; sourceTree = "<group>"; };
+		B069D3E41DCFE537004EBF13 /* Option.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Option.swift; path = Models/Option.swift; sourceTree = "<group>"; };
 		D9DA6F54115467ABF7554BBA /* Pods-couponUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-couponUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-couponUITests/Pods-couponUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F9E68CE6763F35ED723C6A88 /* Pods-couponTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-couponTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-couponTests/Pods-couponTests.release.xcconfig"; sourceTree = "<group>"; };
 		FC47DAD94F49C0724506AF9E /* Pods-coupon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coupon.release.xcconfig"; path = "Pods/Target Support Files/Pods-coupon/Pods-coupon.release.xcconfig"; sourceTree = "<group>"; };
@@ -251,6 +255,8 @@
 				B0204C631DCE4EF3009703B2 /* Offer.swift */,
 				B0204C651DCE4F01009703B2 /* Retailer.swift */,
 				B069D3D31DCFB03D004EBF13 /* Location.swift */,
+				B069D3E11DCFE4E7004EBF13 /* Reward.swift */,
+				B069D3E41DCFE537004EBF13 /* Option.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -596,6 +602,7 @@
 				B0204C641DCE4EF3009703B2 /* Offer.swift in Sources */,
 				B069D3D41DCFB03D004EBF13 /* Location.swift in Sources */,
 				B0204C661DCE4F01009703B2 /* Retailer.swift in Sources */,
+				B069D3E21DCFE4E7004EBF13 /* Reward.swift in Sources */,
 				B069D3DE1DCFCEAB004EBF13 /* LocationHelper.swift in Sources */,
 				B069D3C11DCE8DD3004EBF13 /* InitializationViewController.swift in Sources */,
 				B069D3E01DCFD74B004EBF13 /* LocationAnnotation.swift in Sources */,
@@ -604,6 +611,7 @@
 				B069D3D61DCFB0F3004EBF13 /* LocationTranslatorHelper.swift in Sources */,
 				B069D3D11DCEEF31004EBF13 /* OfferTableViewCell.swift in Sources */,
 				B0204C291DCE4549009703B2 /* ViewController.swift in Sources */,
+				B069D3E51DCFE537004EBF13 /* Option.swift in Sources */,
 				B069D3CE1DCEE7E6004EBF13 /* RetailerDetailViewController.swift in Sources */,
 				B069D3DA1DCFBC4D004EBF13 /* LocationsViewController.swift in Sources */,
 				B0204C271DCE4549009703B2 /* AppDelegate.swift in Sources */,

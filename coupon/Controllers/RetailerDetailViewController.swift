@@ -29,7 +29,7 @@ class RetailerDetailViewController:
     
     // realm datasource
     let realm = try! Realm()
-    var allOffers: Results<Offer>?
+    var allOffers: List<Offer>?
     var filteredOffers: Results<Offer>?
     // Selected Retailer
     var selectedRetailer: Object?
@@ -45,6 +45,8 @@ class RetailerDetailViewController:
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        allOffers = selectedRetailer?.value(forKey: "offers") as! List<Offer>?
+        
         offerTableView.register(UINib(nibName: "OfferTableViewCell", bundle: nil), forCellReuseIdentifier: "OfferCell")
         offerTableView.delegate = self
         offerTableView.dataSource = self

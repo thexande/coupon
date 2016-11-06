@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class InitializationViewController: UIViewController {
 
@@ -15,15 +16,19 @@ class InitializationViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        // Load all json data into realm before segue
-        print("starting")
-        let processedRetailers = RetailerTranslatorHelper.translateRetailer(data: ReadJSONHelper.getAllRetailers()!)
-        RealmDatabaseHelper.writeRetailers(retailers: processedRetailers!)
-        
-        let processedOffers = OfferTranslatorHelper.translateOffer(data: ReadJSONHelper.getAllOffers()!)
-        RealmDatabaseHelper.writeRetailers(retailers: processedOffers!)
-        print("all done")
-        self.performSegue(withIdentifier: "showRetailers", sender: self)
+        let realm = try! Realm()
+        // Load all json data into realm if first load before segue
+        if(realm.objects(Retailer.self).count == 0) {
+            print("starting")
+            let processedRetailers = RetailerTranslatorHelper.translateRetailer(data: ReadJSONHelper.getAllRetailers()!)
+            RealmDatabaseHelper.writeRetailers(retailers: processedRetailers!)
+            let processedOffers = OfferTranslatorHelper.translateOffer(data: ReadJSONHelper.getAllOffers()!)
+            RealmDatabaseHelper.writeRetailers(retailers: processedOffers!)
+            print("all done")
+            self.performSegue(withIdentifier: "showRetailers", sender: self)
+        } else {
+            self.performSegue(withIdentifier: "showRetailers", sender: self)
+        }
     }
 
 

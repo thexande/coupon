@@ -88,7 +88,7 @@ class RetailersMasterViewController:
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RetailerCell", for: indexPath) as! RetailerTableViewCell
         if shouldShowSearchResults {
-            let currentRetailer = self.allRetailers?[indexPath.row]
+            let currentRetailer = self.filteredRetailers?[indexPath.row]
             cell.retailer = currentRetailer
         }
         else {
@@ -158,7 +158,9 @@ class RetailersMasterViewController:
             return
         }
         
+        filteredRetailers = allRetailers?.filter(NSPredicate(format: "id = %@", searchString))
         
+        print(filteredRetailers)
 //        filteredCarArray = carDataArray?.filter({ (car) -> Bool in
 //            let carMake: NSString = car["make"].stringValue as NSString
 //            let carModel: NSString = car["model"].stringValue as NSString
@@ -198,15 +200,7 @@ class RetailersMasterViewController:
     
     
     func didChangeSearchText(_ searchText: String) {
-        
-//        filteredCarArray = carDataArray?.filter({ (car) -> Bool in
-//            let carMake: NSString = car["make"].stringValue as NSString
-//            let carModel: NSString = car["model"].stringValue as NSString
-//            let carYear: NSString = car["year"].stringValue as NSString
-//            let carDataString: String = "\(carMake),\(carModel),\(carYear)" as String
-//            return (carDataString.score(searchText.trimmingCharacters(in: .whitespaces)) > 0.1)
-//        })
-        
+        filteredRetailers = allRetailers?.filter(NSPredicate(format: "name CONTAINS %@", searchText))
         // Reload the tableview.
         retailerTableView.reloadData()
     }

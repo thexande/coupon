@@ -144,6 +144,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="locationsMapView" destination="Zvv-IQ-KNs" id="9le-KH-1hm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I6l-Tr-YNC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

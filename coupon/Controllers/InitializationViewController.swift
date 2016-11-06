@@ -17,10 +17,9 @@ class InitializationViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         let realm = try! Realm()
-        // Load all json data into realm if first load before segue
         if(realm.objects(Retailer.self).count == 0) {
             print("starting")
-            
+            //load retailers, offers and locations into Realm with associations
             let processedRetailers = RetailerTranslatorHelper.translateRetailer(data: ReadJSONHelper.getAllRetailers()!)
             RealmDatabaseHelper.writeRetailers(retailers: processedRetailers!)
             
@@ -36,7 +35,6 @@ class InitializationViewController: UIViewController {
             self.performSegue(withIdentifier: "showRetailers", sender: self)
         }
     }
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

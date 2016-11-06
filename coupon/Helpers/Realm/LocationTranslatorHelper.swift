@@ -21,9 +21,7 @@ class LocationTranslatorHelper {
             location.latitude = locationObject["lat"].doubleValue
             location.longitude = locationObject["long"].doubleValue
             location.id = locationObject["id"].intValue
-            
             let retailerId = locationObject["retailer_id"].intValue
-            print("retailer id here", retailerId)
             let predicate = NSPredicate(format: "id = %d", retailerId)
             let linkedRetailersFromId = allRetailers.filter(predicate)
             for retailer in linkedRetailersFromId {

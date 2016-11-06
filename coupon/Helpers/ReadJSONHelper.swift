@@ -10,6 +10,7 @@ import Foundation
 import SwiftyJSON
 
 class ReadJSONHelper {
+    
     static func getAllRetailers() -> JSON? {
         if let path = Bundle.main.path(forResource: "Retailers", ofType: "json") {
             do {
@@ -24,6 +25,7 @@ class ReadJSONHelper {
         }
         return nil
     }
+    
     static func getAllOffers() -> JSON? {
         if let path = Bundle.main.path(forResource: "Offers", ofType: "json") {
             do {
@@ -38,13 +40,13 @@ class ReadJSONHelper {
         }
         return nil
     }
+    
     static func getAllLocaitons() -> JSON? {
         if let path = Bundle.main.path(forResource: "Locations", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
                 let jsonObj = JSON(data: data)
                 if jsonObj != JSON.null {
-                    print(jsonObj)
                     return jsonObj
                 }
             } catch let error {

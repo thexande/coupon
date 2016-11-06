@@ -19,4 +19,5 @@ class Offer: Object {
     dynamic var launched_at = ""
     dynamic var purchase_type = ""
     let rewards = List<Reward>()
+    let categories = List<Category>()
 }

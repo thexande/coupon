@@ -15,7 +15,7 @@ class OfferTranslatorHelper {
         var offers = [Offer]()
         let realm = try! Realm()
         let allRetailers = realm.objects(Retailer.self)
-        print("beginning relation map")
+        print("beginning offer relation map")
         for offerObject in (data?.arrayValue.prefix(100))! {
             let offer = Offer()
             offer.name = offerObject["name"].stringValue
@@ -26,6 +26,16 @@ class OfferTranslatorHelper {
             offer.launched_at = offerObject["launched_at"].stringValue
             offer.purchase_type = offerObject["purchase_type"].stringValue
             
+            // create categories
+            let categoriesArray = offerObject["categories"].arrayValue
+            for category in categoriesArray {
+                let categoryObject = Category()
+                categoryObject.id = category["id"].intValue
+                categoryObject.name = category["name"].stringValue
+                categoryObject.sort_order = category["sort_order"].doubleValue
+                offer.categories.append(categoryObject)
+            }
+            
             // create rewards
             let rewardsArray = offerObject["rewards"].arrayValue
             for reward in rewardsArray {
@@ -33,7 +43,7 @@ class OfferTranslatorHelper {
                 rewardObject.content = reward["content"].stringValue
                 
                 // create options
-                let optionsArray = offerObject["rewards"]["options"].arrayValue
+                let optionsArray = reward["options"].arrayValue
                 for option in optionsArray {
                     let optionObject = Option()
                     optionObject.content = option["content"].stringValue
@@ -52,11 +62,9 @@ class OfferTranslatorHelper {
                         retailer.offers.append(offer)
                     }
                 }
-            
-            
             offers.append(offer)
         }
-        print("end relation map")
+        print("end offer relation map")
         return offers
     }
 }

@@ -1,5 +1,5 @@
 //
-//  RetailersMasterViewController.swift
+//  RetailerDetailViewController.swift
 //  coupon
 //
 //  Created by Alexander Murphy on 11/5/16.
@@ -11,7 +11,7 @@ import SDWebImage
 import DZNEmptyDataSet
 import RealmSwift
 
-class RetailersMasterViewController:
+class RetailerDetailViewController:
     
     UIViewController,
     UITableViewDelegate,
@@ -22,34 +22,40 @@ class RetailersMasterViewController:
     DZNEmptyDataSetDelegate {
     
     // Interface Outlets
-    @IBOutlet weak var retailerTableView: UITableView!
+    @IBOutlet weak var retailerBannerImageView: UIImageView!
+    @IBOutlet weak var retailerTagLineView: UIVisualEffectView!
     @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var offerTableView: UITableView!
     
     // realm datasource
     let realm = try! Realm()
-    var allRetailers: Results<Retailer>?
-    var filteredRetailers: Results<Retailer>?
-
+    var allOffers: Results<Offer>?
+    var filteredOffers: Results<Offer>?
+    
+    //selected retailer
+    var selectedRetailer: Object!
+    
+    // search
     var customSearchController: CustomSearchController!
     var searchController: UISearchController!
     var shouldShowSearchResults: Bool = false
-    var selectedRetailer: Object?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.allRetailers = realm.objects(Retailer.self)
-        retailerTableView.register(UINib(nibName: "RetailerTableViewCell", bundle: nil), forCellReuseIdentifier: "RetailerCell")
-        retailerTableView.delegate = self
-        retailerTableView.dataSource = self
-        retailerTableView.separatorColor = UIColor.white
+        offerTableView.register(UINib(nibName: "OfferTableViewCell", bundle: nil), forCellReuseIdentifier: "OfferCell")
+        offerTableView.delegate = self
+        offerTableView.dataSource = self
+        offerTableView.separatorColor = UIColor.white
         
         //empty data set
-        retailerTableView.emptyDataSetSource = self
-        retailerTableView.emptyDataSetDelegate = self
+        offerTableView.emptyDataSetSource = self
+        offerTableView.emptyDataSetDelegate = self
         
         // Do any additional setup after loading the view.
         // Our custom search bar configuration
         configureCustomSearchController()
+        // Do any additional setup after loading the view.
+        print(selectedRetailer)
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,16 +63,9 @@ class RetailersMasterViewController:
         // Dispose of any resources that can be recreated.
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "showRetailerDetail") {
-            let destination = segue.destination as! RetailerDetailViewController
-                destination.selectedRetailer = selectedRetailer
-        }
-    }
-    
     // MARK: DZNDataSource
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        let str = "No cars have matched your search. \n\n\n\n\n\n\n\n"
+        let str = "No offers have matched your search. \n\n\n\n\n\n\n\n"
         let attrs = [NSFontAttributeName: UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)]
         return NSAttributedString(string: str, attributes: attrs)
     }
@@ -81,44 +80,39 @@ class RetailersMasterViewController:
     // table view methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if shouldShowSearchResults {
-            if(self.filteredRetailers == nil) {
+            if(self.filteredOffers == nil) {
                 return 0
             } else {
-                return self.filteredRetailers!.count
+                return self.filteredOffers!.count
             }
         }
         else {
-            return self.allRetailers!.count
+            return self.allOffers!.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RetailerCell", for: indexPath) as! RetailerTableViewCell
         if shouldShowSearchResults {
-            let currentRetailer = self.filteredRetailers?[indexPath.row]
+            let currentRetailer = self.filteredOffers?[indexPath.row]
             cell.retailer = currentRetailer
         }
         else {
-            let currentRetailer = self.allRetailers?[indexPath.row]
+            let currentRetailer = self.allOffers?[indexPath.row]
             cell.retailer = currentRetailer
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if(shouldShowSearchResults) {
-            selectedRetailer = filteredRetailers?[indexPath.row]
-            self.performSegue(withIdentifier: "showRetailerDetail", sender: self)
-        } else {
-            selectedRetailer = allRetailers?[indexPath.row]
-            self.performSegue(withIdentifier: "showRetailerDetail", sender: self)
-        }
+        self.performSegue(withIdentifier: "showRetailerDetail", sender: self)
+        print(self.allOffers?[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 65.0
     }
-
+    
     //custom search bar functions / configuration
     func configureCustomSearchController() {
         let screenSize: CGRect = UIScreen.main.bounds
@@ -131,24 +125,24 @@ class RetailersMasterViewController:
     // CustomSearchControllerDelegate functions
     func didStartSearching() {
         shouldShowSearchResults = true
-        retailerTableView.reloadData()
+        offerTableView.reloadData()
     }
     
     func didTapOnSearchButton() {
         if !shouldShowSearchResults {
             shouldShowSearchResults = true
-            retailerTableView.reloadData()
+            offerTableView.reloadData()
         }
     }
     
     func didTapOnCancelButton() {
         shouldShowSearchResults = false
-        retailerTableView.reloadData()
+        offerTableView.reloadData()
     }
     
     func didChangeSearchText(_ searchText: String) {
-        filteredRetailers = allRetailers?.filter(NSPredicate(format: "name CONTAINS %@", searchText))
+        filteredOffers = allOffers?.filter(NSPredicate(format: "name CONTAINS %@", searchText))
         // Reload the tableview.
-        retailerTableView.reloadData()
+        offerTableView.reloadData()
     }
 }

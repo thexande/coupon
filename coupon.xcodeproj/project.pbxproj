@@ -31,6 +31,9 @@
 		B069D3C81DCE988B004EBF13 /* RetailersMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069D3C71DCE988B004EBF13 /* RetailersMasterViewController.swift */; };
 		B069D3CB1DCEB8A9004EBF13 /* RetailerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069D3C91DCEB8A9004EBF13 /* RetailerTableViewCell.swift */; };
 		B069D3CC1DCEB8A9004EBF13 /* RetailerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B069D3CA1DCEB8A9004EBF13 /* RetailerTableViewCell.xib */; };
+		B069D3CE1DCEE7E6004EBF13 /* RetailerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069D3CD1DCEE7E6004EBF13 /* RetailerDetailViewController.swift */; };
+		B069D3D11DCEEF31004EBF13 /* OfferTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069D3CF1DCEEF31004EBF13 /* OfferTableViewCell.swift */; };
+		B069D3D21DCEEF31004EBF13 /* OfferTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B069D3D01DCEEF31004EBF13 /* OfferTableViewCell.xib */; };
 		BC16E86EF8DA5AB3F661DA14 /* Pods_coupon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F43CED56337DE44F7D5EECF /* Pods_coupon.framework */; };
 		CF148B399B17F67663382A39 /* Pods_couponUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703C22EDCAE20C7A0A07D87E /* Pods_couponUITests.framework */; };
 /* End PBXBuildFile section */
@@ -88,6 +91,9 @@
 		B069D3C71DCE988B004EBF13 /* RetailersMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RetailersMasterViewController.swift; path = Controllers/RetailersMasterViewController.swift; sourceTree = "<group>"; };
 		B069D3C91DCEB8A9004EBF13 /* RetailerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RetailerTableViewCell.swift; path = Views/RetailerTableViewCell.swift; sourceTree = "<group>"; };
 		B069D3CA1DCEB8A9004EBF13 /* RetailerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RetailerTableViewCell.xib; path = Views/RetailerTableViewCell.xib; sourceTree = "<group>"; };
+		B069D3CD1DCEE7E6004EBF13 /* RetailerDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RetailerDetailViewController.swift; path = Controllers/RetailerDetailViewController.swift; sourceTree = "<group>"; };
+		B069D3CF1DCEEF31004EBF13 /* OfferTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OfferTableViewCell.swift; path = Views/OfferTableViewCell.swift; sourceTree = "<group>"; };
+		B069D3D01DCEEF31004EBF13 /* OfferTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OfferTableViewCell.xib; path = Views/OfferTableViewCell.xib; sourceTree = "<group>"; };
 		D9DA6F54115467ABF7554BBA /* Pods-couponUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-couponUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-couponUITests/Pods-couponUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F9E68CE6763F35ED723C6A88 /* Pods-couponTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-couponTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-couponTests/Pods-couponTests.release.xcconfig"; sourceTree = "<group>"; };
 		FC47DAD94F49C0724506AF9E /* Pods-coupon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coupon.release.xcconfig"; path = "Pods/Target Support Files/Pods-coupon/Pods-coupon.release.xcconfig"; sourceTree = "<group>"; };
@@ -192,6 +198,7 @@
 				B0204C281DCE4549009703B2 /* ViewController.swift */,
 				B069D3C01DCE8DD3004EBF13 /* InitializationViewController.swift */,
 				B069D3C71DCE988B004EBF13 /* RetailersMasterViewController.swift */,
+				B069D3CD1DCEE7E6004EBF13 /* RetailerDetailViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -203,6 +210,8 @@
 				B0204C2A1DCE4549009703B2 /* Main.storyboard */,
 				B069D3C91DCEB8A9004EBF13 /* RetailerTableViewCell.swift */,
 				B069D3CA1DCEB8A9004EBF13 /* RetailerTableViewCell.xib */,
+				B069D3CF1DCEEF31004EBF13 /* OfferTableViewCell.swift */,
+				B069D3D01DCEEF31004EBF13 /* OfferTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -406,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0204C791DCE57A4009703B2 /* Retailers.json in Resources */,
+				B069D3D21DCEEF31004EBF13 /* OfferTableViewCell.xib in Resources */,
 				B0204C711DCE5583009703B2 /* Offers.json in Resources */,
 				B0204C731DCE5583009703B2 /* Store Locations.json in Resources */,
 				B0204C311DCE4549009703B2 /* LaunchScreen.storyboard in Resources */,
@@ -566,7 +576,9 @@
 				B069D3C11DCE8DD3004EBF13 /* InitializationViewController.swift in Sources */,
 				B069D3C81DCE988B004EBF13 /* RetailersMasterViewController.swift in Sources */,
 				B0204C811DCE6AA6009703B2 /* OfferTranslatorHelper.swift in Sources */,
+				B069D3D11DCEEF31004EBF13 /* OfferTableViewCell.swift in Sources */,
 				B0204C291DCE4549009703B2 /* ViewController.swift in Sources */,
+				B069D3CE1DCEE7E6004EBF13 /* RetailerDetailViewController.swift in Sources */,
 				B0204C271DCE4549009703B2 /* AppDelegate.swift in Sources */,
 				B0204C771DCE5620009703B2 /* ReadJSONHelper.swift in Sources */,
 				B0204C7F1DCE629C009703B2 /* RealmDatabaseHelper.swift in Sources */,

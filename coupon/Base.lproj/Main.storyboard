@@ -39,10 +39,60 @@
                     <connections>
                         <outlet property="retailerTableView" destination="eO6-CV-y4N" id="296-fg-E7u"/>
                         <outlet property="searchView" destination="dK3-NB-2xn" id="fQq-mP-wwb"/>
+                        <segue destination="sfk-2i-qp7" kind="show" identifier="showRetailerDetail" id="djT-7o-LXp"/>
                     </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1076" y="108.39580209895054"/>
+        </scene>
+        <!--Retailer Detail View Controller-->
+        <scene sceneID="Xlm-ys-lpQ">
+            <objects>
+                <viewController id="sfk-2i-qp7" customClass="RetailerDetailViewController" customModule="coupon" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JBD-91-lOk"/>
+                        <viewControllerLayoutGuide type="bottom" id="qPO-EV-caO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LAD-Zk-5RI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ycK-iR-Ke7">
+                                <rect key="frame" x="1" y="121" width="375" height="137"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zFq-Ps-ZWe">
+                                <rect key="frame" x="0.0" y="258" width="375" height="409"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z9I-ie-kqs">
+                                <rect key="frame" x="0.0" y="258" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="WBf-YG-fI2">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wfD-2W-V30">
+                                <rect key="frame" x="0.0" y="64" width="375" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="offerTableView" destination="zFq-Ps-ZWe" id="kor-ng-qyg"/>
+                        <outlet property="retailerBannerImageView" destination="ycK-iR-Ke7" id="LME-Lw-VSn"/>
+                        <outlet property="retailerTagLineView" destination="z9I-ie-kqs" id="n80-nk-MW2"/>
+                        <outlet property="searchView" destination="wfD-2W-V30" id="jnE-Qh-yXo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ryy-0X-55i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2024.8" y="107.49625187406298"/>
         </scene>
         <!--Initialization View Controller-->
         <scene sceneID="EyD-X5-Rsk">

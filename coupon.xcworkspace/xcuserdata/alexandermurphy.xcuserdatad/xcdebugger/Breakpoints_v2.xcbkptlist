@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "coupon/Controllers/RetailersMasterViewController.swift"
-            timestampString = "500096580.430936"
+            timestampString = "500098310.924115"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "RetailersMasterViewController"
             landmarkType = "3">
          </BreakpointContent>

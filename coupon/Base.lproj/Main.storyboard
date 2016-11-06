@@ -12,7 +12,6 @@
         <!--RETAILERS-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="RetailersMasterViewController" customModule="coupon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -42,6 +41,7 @@
                         <segue destination="sfk-2i-qp7" kind="show" identifier="showRetailerDetail" id="djT-7o-LXp"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="108.39580209895054"/>
         </scene>
@@ -72,6 +72,17 @@
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="WBf-YG-fI2">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="85x-XR-Va2">
+                                            <rect key="frame" x="98" y="8" width="178" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.27674412729999998" green="0.89409565930000001" blue="0.76005369420000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" title="Locations Near Me"/>
+                                            <connections>
+                                                <action selector="showLocations:" destination="sfk-2i-qp7" eventType="touchUpInside" id="e7a-Zw-dDB"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
@@ -88,11 +99,55 @@
                         <outlet property="retailerBannerImageView" destination="ycK-iR-Ke7" id="LME-Lw-VSn"/>
                         <outlet property="retailerTagLineView" destination="z9I-ie-kqs" id="n80-nk-MW2"/>
                         <outlet property="searchView" destination="wfD-2W-V30" id="jnE-Qh-yXo"/>
+                        <segue destination="5r0-zl-L7f" kind="show" identifier="showLocations" id="g56-5c-Bxw"/>
+                        <segue destination="Mmr-CS-dov" kind="show" identifier="showOfferDetail" id="IjC-Ss-qQX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ryy-0X-55i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2024.8" y="107.49625187406298"/>
+        </scene>
+        <!--Offer Detail View Controller-->
+        <scene sceneID="a6h-Bm-avl">
+            <objects>
+                <viewController id="Mmr-CS-dov" customClass="OfferDetailViewController" customModule="coupon" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="chZ-21-Mq0"/>
+                        <viewControllerLayoutGuide type="bottom" id="7sV-Rx-ogc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ory-B8-7Q9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Jd-Mk-SHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2874" y="398"/>
+        </scene>
+        <!--Locations View Controller-->
+        <scene sceneID="ZlM-IA-ml3">
+            <objects>
+                <viewController id="5r0-zl-L7f" customClass="LocationsViewController" customModule="coupon" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RQt-uR-KuW"/>
+                        <viewControllerLayoutGuide type="bottom" id="bSI-nZ-drQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="64c-kE-ri5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Zvv-IQ-KNs">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I6l-Tr-YNC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2874" y="-271"/>
         </scene>
         <!--Initialization View Controller-->
         <scene sceneID="EyD-X5-Rsk">
@@ -127,7 +182,6 @@
         <!--Navigation Controller-->
         <scene sceneID="zcs-7t-rMW">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="763-tf-VzZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Ft-kv-QqR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wgW-y6-qX3">
@@ -139,6 +193,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="OEl-Uq-EKg"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="763-tf-VzZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="76" y="107"/>
         </scene>

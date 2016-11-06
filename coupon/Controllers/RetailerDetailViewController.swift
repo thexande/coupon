@@ -32,10 +32,11 @@ class RetailerDetailViewController:
     var allOffers: List<Offer>?
     var filteredOffers: Results<Offer>?
     // Selected Retailer
-    var selectedRetailer: Object?
+    var selectedRetailer: Object!
+    var selectedRetailerName: String?
     // Selected Offer
     var selectedOffer: Object?
-    
+    let noLocationAlert = UIAlertController(title: "No Locations Available", message: "Sorry, no locaitons are available for the selected retailer.", preferredStyle: UIAlertControllerStyle.alert)
     
     
     // search
@@ -45,6 +46,18 @@ class RetailerDetailViewController:
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // set nav bar title
+        selectedRetailerName = selectedRetailer?.value(forKey: "name") as! String?
+        self.title = selectedRetailerName
+        //configure alert
+        noLocationAlert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+        // set banner image
+        let remoteImageURLString = selectedRetailer?.value(forKey: "exclusive_image_url")  as! String?
+        if(remoteImageURLString != nil) {
+            let remoteImageURL = NSURL(string: remoteImageURLString!)
+            retailerBannerImageView.sd_setImage(with: remoteImageURL as URL!, placeholderImage: UIImage(named: "Appicon"), options: SDWebImageOptions.progressiveDownload)
+        }
+        
         allOffers = selectedRetailer?.value(forKey: "offers") as! List<Offer>?
         
         offerTableView.register(UINib(nibName: "OfferTableViewCell", bundle: nil), forCellReuseIdentifier: "OfferCell")
@@ -67,21 +80,38 @@ class RetailerDetailViewController:
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: DZNDataSource
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "showLocations") {
+            let destination = segue.destination as! LocationsViewController
+            destination.selectedRetailer = selectedRetailer
+        } else if (segue.identifier == "showOfferDetail") {
+            let destination = segue.destination as! OfferDetailViewController
+            destination.selectedOffer = selectedOffer
+        }
+    }
+    
+    // Interface Actions
+    @IBAction func showLocations(_ sender: Any) {
+        let availableLocations = selectedRetailer["locations"] as! List<Location>
+        if(availableLocations.count == 0){
+            self.present(noLocationAlert, animated: true, completion: nil)
+        } else {
+            self.performSegue(withIdentifier: "showLocations", sender: self)
+        }
+    }
+    
+    // DZNDataSource
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
         let str = "No offers have matched your search. \n\n\n\n\n\n\n\n"
         let attrs = [NSFontAttributeName: UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)]
         return NSAttributedString(string: str, attributes: attrs)
     }
     
-    
-    // MARK: UITableView Delegate and Datasource functions
-    
+    // UITableView Delegate and Datasource functions
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    // table view methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if shouldShowSearchResults {
             if(self.filteredOffers == nil) {
@@ -109,8 +139,12 @@ class RetailerDetailViewController:
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "showRetailerDetail", sender: self)
-        print(self.allOffers?[indexPath.row])
+        if(shouldShowSearchResults) {
+            selectedOffer = filteredOffers?[indexPath.row]
+        } else {
+            selectedOffer = allOffers?[indexPath.row]
+        }
+        self.performSegue(withIdentifier: "showOfferDetail", sender: self)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -121,7 +155,7 @@ class RetailerDetailViewController:
     func configureCustomSearchController() {
         let screenSize: CGRect = UIScreen.main.bounds
         customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRect(x: 0.0, y: 0.0, width: screenSize.width, height: 50.0), searchBarFont: UIFont(name: "Arial Rounded MT Bold", size: 16.0)!, searchBarTextColor: UIColor.white, searchBarTintColor: UIColor(red:0.56, green:0.07, blue:1.00, alpha:1.0))
-        customSearchController.customSearchBar.placeholder = "Search For Retailers!"
+        customSearchController.customSearchBar.placeholder = "Search For Offers!"
         searchView.addSubview(customSearchController.customSearchBar)
         customSearchController.customDelegate = self
     }

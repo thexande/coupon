@@ -8,11 +8,13 @@
 
 import UIKit
 import RealmSwift
+import SDWebImage
 
 class RetailerTableViewCell: UITableViewCell {
     public var retailer: Object?
     
     @IBOutlet weak var retailerNameLabel: UILabel!
+    @IBOutlet weak var retailerImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +26,11 @@ class RetailerTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
         self.retailerNameLabel.text = retailer?.value(forKey: "name") as! String?
+        
+        let remoteImageURLString = retailer?.value(forKey: "icon_url")  as! String?
+        if(remoteImageURLString != nil) {
+            let remoteImageURL = NSURL(string: remoteImageURLString!)
+            self.retailerImageView.sd_setImage(with: remoteImageURL as URL!, placeholderImage: UIImage(named: "Appicon"), options: SDWebImageOptions.progressiveDownload)
+        }
     }
-    
 }

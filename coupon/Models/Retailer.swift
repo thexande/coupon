@@ -13,5 +13,7 @@ import RealmSwift
 class Retailer: Object {
     dynamic var name = ""
     dynamic var id = 0
+    dynamic var icon_url = ""
+    dynamic var exclusive_image_url = ""
     let offers = List<Offer>()
 }

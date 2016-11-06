@@ -15,6 +15,9 @@ class RetailerTranslatorHelper {
         for retailerObject in (data?.array)! {
             let retailer = Retailer()
             retailer.name = retailerObject["name"].stringValue
+            retailer.icon_url = retailerObject["icon_url"].stringValue
+            retailer.exclusive_image_url = retailerObject["exclusive_image_url"].stringValue
+            
             retailer.id = retailerObject["id"].intValue
             retailers.append(retailer)
         }

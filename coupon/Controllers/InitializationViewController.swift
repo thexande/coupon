@@ -20,10 +20,16 @@ class InitializationViewController: UIViewController {
         // Load all json data into realm if first load before segue
         if(realm.objects(Retailer.self).count == 0) {
             print("starting")
+            
             let processedRetailers = RetailerTranslatorHelper.translateRetailer(data: ReadJSONHelper.getAllRetailers()!)
             RealmDatabaseHelper.writeRetailers(retailers: processedRetailers!)
+            
             let processedOffers = OfferTranslatorHelper.translateOffer(data: ReadJSONHelper.getAllOffers()!)
             RealmDatabaseHelper.writeRetailers(retailers: processedOffers!)
+            
+            let processedLocations = LocationTranslatorHelper.translateLocation(data: ReadJSONHelper.getAllLocaitons()!)
+            RealmDatabaseHelper.writeLocations(locations: processedLocations!)
+            
             print("all done")
             self.performSegue(withIdentifier: "showRetailers", sender: self)
         } else {

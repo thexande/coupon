@@ -16,4 +16,5 @@ class Retailer: Object {
     dynamic var icon_url = ""
     dynamic var exclusive_image_url = ""
     let offers = List<Offer>()
+    let locations = List<Location>()
 }

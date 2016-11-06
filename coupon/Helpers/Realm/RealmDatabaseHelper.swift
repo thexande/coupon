@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 
 class RealmDatabaseHelper {
+    
     static func writeRetailers(retailers: [Object]) {
         let realm = try! Realm()
         print("Path to realm file: " + realm.configuration.fileURL!.absoluteString)
@@ -19,6 +20,7 @@ class RealmDatabaseHelper {
             }
         }
     }
+    
     static func writeOffers(offers: [Object]) {
         let realm = try! Realm()
         for offer in offers {
@@ -27,5 +29,13 @@ class RealmDatabaseHelper {
             }
         }
     }
-    //static func writeRetailerRelations()
+    
+    static func writeLocations(locations: [Object]) {
+        let realm = try! Realm()
+        for location in locations {
+            try! realm.write {
+                realm.add(location)
+            }
+        }
+    }
 }

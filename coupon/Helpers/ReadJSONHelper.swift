@@ -38,4 +38,19 @@ class ReadJSONHelper {
         }
         return nil
     }
+    static func getAllLocaitons() -> JSON? {
+        if let path = Bundle.main.path(forResource: "Locations", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+                let jsonObj = JSON(data: data)
+                if jsonObj != JSON.null {
+                    print(jsonObj)
+                    return jsonObj
+                }
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        }
+        return nil
+    }
 }

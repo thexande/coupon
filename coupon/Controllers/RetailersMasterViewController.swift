@@ -22,6 +22,7 @@ class RetailersMasterViewController:
     DZNEmptyDataSetSource,
     DZNEmptyDataSetDelegate {
 
+    
     @IBOutlet weak var retailerTableView: UITableView!
     @IBOutlet weak var searchView: UIView!
     
@@ -89,29 +90,10 @@ class RetailersMasterViewController:
         if shouldShowSearchResults {
             let currentRetailer = self.allRetailers?[indexPath.row]
             cell.retailer = currentRetailer
-//
-//            let remoteImageURLString = currentCar?["image_url"].stringValue
-//            if (remoteImageURLString != nil) {
-//                let remoteImageURL = NSURL(string: remoteImageURLString!)
-//                cell.carImageView.sd_setImage(with: remoteImageURL as URL!, placeholderImage: UIImage(named: "car"), options: SDWebImageOptions.progressiveDownload)
-//            }
-//            cell.car = currentCar
         }
         else {
             let currentRetailer = self.allRetailers?[indexPath.row]
             cell.retailer = currentRetailer
-            
-//            
-//            let currentCar = self.carDataArray?[indexPath.row]
-//            let remoteImageURLString = currentCar?["image_url"].stringValue
-//            if (remoteImageURLString != nil) {
-//                let remoteImageURL = NSURL(string: remoteImageURLString!)
-//                cell.carImageView.sd_setImage(with: remoteImageURL as URL!, placeholderImage: UIImage(named: "car"), options: SDWebImageOptions.progressiveDownload)
-//            }
-//            
-//            
-//            
-//            cell.car = currentCar
         }
         return cell
     }
@@ -120,7 +102,7 @@ class RetailersMasterViewController:
         print(self.allRetailers?[indexPath.row])
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100.0
+        return 65.0
     }
     
     // search controller
@@ -132,12 +114,6 @@ class RetailersMasterViewController:
         searchController.searchBar.placeholder = "Search here..."
         searchController.searchBar.delegate = self
         searchController.searchBar.sizeToFit()
-        
-        // Include the search bar within the navigation bar.
-        //navigationItem.titleView = searchController.searchBar;
-        
-        // Place the search bar view to the tableview headerview.
-        retailerTableView.tableHeaderView = searchController.searchBar
     }
     
     func configureCustomSearchController() {

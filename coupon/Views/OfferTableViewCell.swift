@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import RealmSwift
 
 class OfferTableViewCell: UITableViewCell {
-
+    
+    public var offer: Object?
+    
+    @IBOutlet weak var offerTitleLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -17,7 +22,8 @@ class OfferTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        offerTitleLabel.text = offer?["name"] as! String?
+        
         // Configure the view for the selected state
     }
     

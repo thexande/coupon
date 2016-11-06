@@ -31,9 +31,12 @@ class RetailerDetailViewController:
     let realm = try! Realm()
     var allOffers: Results<Offer>?
     var filteredOffers: Results<Offer>?
+    // Selected Retailer
+    var selectedRetailer: Object?
+    // Selected Offer
+    var selectedOffer: Object?
     
-    //selected retailer
-    var selectedRetailer: Object!
+    
     
     // search
     var customSearchController: CustomSearchController!
@@ -55,7 +58,6 @@ class RetailerDetailViewController:
         // Our custom search bar configuration
         configureCustomSearchController()
         // Do any additional setup after loading the view.
-        print(selectedRetailer)
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,14 +94,14 @@ class RetailerDetailViewController:
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RetailerCell", for: indexPath) as! RetailerTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "OfferCell", for: indexPath) as! OfferTableViewCell
         if shouldShowSearchResults {
-            let currentRetailer = self.filteredOffers?[indexPath.row]
-            cell.retailer = currentRetailer
+            let currentOffer = self.filteredOffers?[indexPath.row]
+            cell.offer = currentOffer
         }
         else {
-            let currentRetailer = self.allOffers?[indexPath.row]
-            cell.retailer = currentRetailer
+            let currentOffer = self.allOffers?[indexPath.row]
+            cell.offer = currentOffer
         }
         return cell
     }

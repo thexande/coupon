@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "coupon/Controllers/OfferDetailViewController.swift"
-            timestampString = "500179929.819841"
+            timestampString = "500181027.09338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "OfferDetailViewController"
             landmarkType = "3">
          </BreakpointContent>

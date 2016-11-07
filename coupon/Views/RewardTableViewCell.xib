@@ -18,15 +18,31 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JtF-U2-Agu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XTW-LB-lh8">
+                        <rect key="frame" x="8" y="0.0" width="304" height="43"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JtF-U2-Agu">
+                                <rect key="frame" x="0.0" y="0.0" width="304" height="43"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="JtF-U2-Agu" secondAttribute="bottom" id="LZG-oJ-ExQ"/>
+                            <constraint firstAttribute="trailing" secondItem="JtF-U2-Agu" secondAttribute="trailing" id="QCw-JQ-Zha"/>
+                            <constraint firstItem="JtF-U2-Agu" firstAttribute="top" secondItem="XTW-LB-lh8" secondAttribute="top" id="Qh0-QU-4JC"/>
+                            <constraint firstItem="JtF-U2-Agu" firstAttribute="leading" secondItem="XTW-LB-lh8" secondAttribute="leading" id="Uwn-bc-ruH"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" red="0.11270479110000001" green="0.76748389009999995" blue="0.64724779129999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="XTW-LB-lh8" secondAttribute="bottom" id="F8Q-lU-epl"/>
+                    <constraint firstItem="XTW-LB-lh8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Jch-Rh-zfJ"/>
+                    <constraint firstAttribute="trailing" secondItem="XTW-LB-lh8" secondAttribute="trailing" constant="8" id="WoQ-vu-5HR"/>
+                    <constraint firstItem="XTW-LB-lh8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="fWC-lZ-tuz"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="rewardTitleLabel" destination="JtF-U2-Agu" id="L9L-5Q-zRt"/>

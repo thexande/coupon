@@ -43,6 +43,10 @@ class OfferDetailViewController:
         //empty data set
         rewardTableView.emptyDataSetSource = self
         rewardTableView.emptyDataSetDelegate = self
+        
+        
+        rewardTableView.rowHeight = UITableViewAutomaticDimension
+        rewardTableView.estimatedRowHeight = 300
     }
 
     override func didReceiveMemoryWarning() {
@@ -103,7 +107,11 @@ class OfferDetailViewController:
         self.performSegue(withIdentifier: "showOfferDetail", sender: self)
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 65.0
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableViewAutomaticDimension
+//    }
+//    
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableViewAutomaticDimension
+//    }
 }

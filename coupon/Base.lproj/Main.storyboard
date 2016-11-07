@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -125,19 +126,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Cm-FG-TCd">
-                                <rect key="frame" x="0.0" y="64" width="375" height="375"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QxC-99-EDw">
-                                <rect key="frame" x="0.0" y="311" width="375" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="6Og-id-hnl">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvE-9j-MIE">
-                                            <rect key="frame" x="8" y="0.0" width="359" height="120"/>
+                                            <rect key="frame" x="96" y="-12" width="0.0" height="0.0"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -147,14 +142,28 @@
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GIN-AW-vky">
-                                <rect key="frame" x="0.0" y="438" width="375" height="229"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GIN-AW-vky">
+                                <rect key="frame" x="0.0" y="363" width="375" height="304"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Cm-FG-TCd">
+                                <rect key="frame" x="0.0" y="64" width="375" height="300"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.11270479110000001" green="0.76748389009999995" blue="0.64724779129999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.11270479110000001" green="0.76748389009999995" blue="0.64724779129999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="2Cm-FG-TCd" firstAttribute="top" secondItem="chZ-21-Mq0" secondAttribute="bottom" id="FWh-7z-qY3"/>
+                            <constraint firstItem="2Cm-FG-TCd" firstAttribute="leading" secondItem="ory-B8-7Q9" secondAttribute="leading" id="Gak-jD-VXC"/>
+                            <constraint firstAttribute="trailing" secondItem="2Cm-FG-TCd" secondAttribute="trailing" id="P3o-ca-11w"/>
+                            <constraint firstItem="7sV-Rx-ogc" firstAttribute="top" secondItem="GIN-AW-vky" secondAttribute="bottom" id="X8f-PL-FUQ"/>
+                            <constraint firstItem="GIN-AW-vky" firstAttribute="leading" secondItem="ory-B8-7Q9" secondAttribute="leading" id="asb-zS-vdY"/>
+                            <constraint firstAttribute="trailing" secondItem="2Cm-FG-TCd" secondAttribute="trailing" id="g3G-Yz-3pE"/>
+                            <constraint firstAttribute="trailing" secondItem="GIN-AW-vky" secondAttribute="trailing" id="gs8-a7-TPl"/>
+                            <constraint firstItem="GIN-AW-vky" firstAttribute="height" secondItem="ory-B8-7Q9" secondAttribute="height" multiplier="0.456" id="oDp-KP-YHx"/>
+                            <constraint firstItem="2Cm-FG-TCd" firstAttribute="height" secondItem="ory-B8-7Q9" secondAttribute="height" multiplier="0.45" id="tlM-yo-bZJ"/>
+                            <constraint firstItem="2Cm-FG-TCd" firstAttribute="leading" secondItem="ory-B8-7Q9" secondAttribute="leading" id="u6W-EF-HPe"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="offerDescriptionLabel" destination="wvE-9j-MIE" id="X3O-aq-wx6"/>
@@ -164,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Jd-Mk-SHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2872.8000000000002" y="397.15142428785612"/>
+            <point key="canvasLocation" x="2921" y="484"/>
         </scene>
         <!--Speech Search View Controller-->
         <scene sceneID="kMe-1W-z04">

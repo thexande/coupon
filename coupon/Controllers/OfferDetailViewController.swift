@@ -8,13 +8,30 @@
 
 import UIKit
 import RealmSwift
+import SDWebImage
+import DZNEmptyDataSet
 
-class OfferDetailViewController: UIViewController {
+class OfferDetailViewController:
     
+    UIViewController,
+    UITableViewDelegate,
+    UITableViewDataSource,
+    DZNEmptyDataSetSource,
+    DZNEmptyDataSetDelegate {
+    
+    @IBOutlet weak var offerDescriptionLabel: UILabel!
+    @IBOutlet weak var offerImage: UIImageView!
     public var selectedOffer: Object?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setOfferImage()
+        setOfferDescription()
+        setNavTitle()
+        
+
+
+
         print(selectedOffer)
 
         // Do any additional setup after loading the view.
@@ -24,16 +41,23 @@ class OfferDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // view data methods
+    func setOfferImage() {
+        let remoteImageURLString = selectedOffer?.value(forKey: "large_url")  as! String?
+        if(remoteImageURLString != nil) {
+            let remoteImageURL = NSURL(string: remoteImageURLString!)
+            offerImage.sd_setImage(with: remoteImageURL as URL!, placeholderImage: UIImage(named: "Appicon"), options: SDWebImageOptions.progressiveDownload)
+        }
     }
-    */
-
+    
+    func setOfferDescription() {
+        let offerDescription = selectedOffer?.value(forKey: "offer_description") as! String
+        offerDescriptionLabel.text = offerDescription
+    }
+    
+    func setNavTitle() {
+        let offerTitle = selectedOffer?.value(forKey: "name") as! String
+        self.title = offerTitle
+    }
+    
 }

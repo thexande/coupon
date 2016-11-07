@@ -46,6 +46,10 @@
 		B083F8761DCFEE5900EAE2AC /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B083F8751DCFEE5900EAE2AC /* Category.swift */; };
 		B083F8781DCFF9CA00EAE2AC /* SpeechSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B083F8771DCFF9CA00EAE2AC /* SpeechSearchViewController.swift */; };
 		B083F87B1DD0009E00EAE2AC /* StringFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B083F87A1DD0009E00EAE2AC /* StringFilter.swift */; };
+		B083F87E1DD0141A00EAE2AC /* RewardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B083F87C1DD0141A00EAE2AC /* RewardTableViewCell.swift */; };
+		B083F87F1DD0141A00EAE2AC /* RewardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B083F87D1DD0141A00EAE2AC /* RewardTableViewCell.xib */; };
+		B083F8821DD0143000EAE2AC /* OptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B083F8801DD0143000EAE2AC /* OptionTableViewCell.swift */; };
+		B083F8831DD0143000EAE2AC /* OptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B083F8811DD0143000EAE2AC /* OptionTableViewCell.xib */; };
 		BC16E86EF8DA5AB3F661DA14 /* Pods_coupon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F43CED56337DE44F7D5EECF /* Pods_coupon.framework */; };
 		CF148B399B17F67663382A39 /* Pods_couponUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703C22EDCAE20C7A0A07D87E /* Pods_couponUITests.framework */; };
 /* End PBXBuildFile section */
@@ -118,6 +122,10 @@
 		B083F8751DCFEE5900EAE2AC /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Category.swift; path = Models/Category.swift; sourceTree = "<group>"; };
 		B083F8771DCFF9CA00EAE2AC /* SpeechSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeechSearchViewController.swift; path = Controllers/SpeechSearchViewController.swift; sourceTree = "<group>"; };
 		B083F87A1DD0009E00EAE2AC /* StringFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringFilter.swift; path = Extensions/StringFilter.swift; sourceTree = "<group>"; };
+		B083F87C1DD0141A00EAE2AC /* RewardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RewardTableViewCell.swift; path = Views/RewardTableViewCell.swift; sourceTree = "<group>"; };
+		B083F87D1DD0141A00EAE2AC /* RewardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RewardTableViewCell.xib; path = Views/RewardTableViewCell.xib; sourceTree = "<group>"; };
+		B083F8801DD0143000EAE2AC /* OptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionTableViewCell.swift; path = Views/OptionTableViewCell.swift; sourceTree = "<group>"; };
+		B083F8811DD0143000EAE2AC /* OptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OptionTableViewCell.xib; path = Views/OptionTableViewCell.xib; sourceTree = "<group>"; };
 		D9DA6F54115467ABF7554BBA /* Pods-couponUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-couponUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-couponUITests/Pods-couponUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F9E68CE6763F35ED723C6A88 /* Pods-couponTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-couponTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-couponTests/Pods-couponTests.release.xcconfig"; sourceTree = "<group>"; };
 		FC47DAD94F49C0724506AF9E /* Pods-coupon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coupon.release.xcconfig"; path = "Pods/Target Support Files/Pods-coupon/Pods-coupon.release.xcconfig"; sourceTree = "<group>"; };
@@ -242,6 +250,10 @@
 				B069D3CA1DCEB8A9004EBF13 /* RetailerTableViewCell.xib */,
 				B069D3CF1DCEEF31004EBF13 /* OfferTableViewCell.swift */,
 				B069D3D01DCEEF31004EBF13 /* OfferTableViewCell.xib */,
+				B083F87C1DD0141A00EAE2AC /* RewardTableViewCell.swift */,
+				B083F87D1DD0141A00EAE2AC /* RewardTableViewCell.xib */,
+				B083F8801DD0143000EAE2AC /* OptionTableViewCell.swift */,
+				B083F8811DD0143000EAE2AC /* OptionTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -459,6 +471,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B083F87F1DD0141A00EAE2AC /* RewardTableViewCell.xib in Resources */,
 				B0204C791DCE57A4009703B2 /* Retailers.json in Resources */,
 				B069D3D21DCEEF31004EBF13 /* OfferTableViewCell.xib in Resources */,
 				B0204C711DCE5583009703B2 /* Offers.json in Resources */,
@@ -466,6 +479,7 @@
 				B0204C311DCE4549009703B2 /* LaunchScreen.storyboard in Resources */,
 				B0204C2E1DCE4549009703B2 /* Assets.xcassets in Resources */,
 				B069D3CC1DCEB8A9004EBF13 /* RetailerTableViewCell.xib in Resources */,
+				B083F8831DD0143000EAE2AC /* OptionTableViewCell.xib in Resources */,
 				B0204C571DCE45A8009703B2 /* Podfile in Resources */,
 				B0204C2C1DCE4549009703B2 /* Main.storyboard in Resources */,
 			);
@@ -635,11 +649,13 @@
 				B0204C271DCE4549009703B2 /* AppDelegate.swift in Sources */,
 				B0204C771DCE5620009703B2 /* ReadJSONHelper.swift in Sources */,
 				B0204C7F1DCE629C009703B2 /* RealmDatabaseHelper.swift in Sources */,
+				B083F8821DD0143000EAE2AC /* OptionTableViewCell.swift in Sources */,
 				B069D3C61DCE9855004EBF13 /* CustomSearchBar.swift in Sources */,
 				B069D3DC1DCFC6E9004EBF13 /* OfferDetailViewController.swift in Sources */,
 				B069D3CB1DCEB8A9004EBF13 /* RetailerTableViewCell.swift in Sources */,
 				B0204C7D1DCE5F92009703B2 /* RetailerTranslatorHelper.swift in Sources */,
 				B083F87B1DD0009E00EAE2AC /* StringFilter.swift in Sources */,
+				B083F87E1DD0141A00EAE2AC /* RewardTableViewCell.swift in Sources */,
 				B083F8761DCFEE5900EAE2AC /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

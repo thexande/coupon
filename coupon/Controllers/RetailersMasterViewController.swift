@@ -134,7 +134,7 @@ class RetailersMasterViewController:
     //custom search bar functions / configuration
     func configureCustomSearchController() {
         let screenSize: CGRect = UIScreen.main.bounds
-        customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRect(x: 0.0, y: 0.0, width: screenSize.width, height: 50.0), searchBarFont: UIFont(name: "Arial Rounded MT Bold", size: 16.0)!, searchBarTextColor: UIColor.white, searchBarTintColor: UIColor(red:0.56, green:0.07, blue:1.00, alpha:1.0))
+        customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRect(x: 0.0, y: 0.0, width: screenSize.width, height: 50.0), searchBarFont: UIFont(name: "Arial Rounded MT Bold", size: 16.0)!, searchBarTextColor: UIColor.white, searchBarTintColor: UIColor(red:0.11, green:0.74, blue:0.61, alpha:1.0))
         customSearchController.customSearchBar.placeholder = "Search For Retailers!"
         searchView.addSubview(customSearchController.customSearchBar)
         customSearchController.customDelegate = self

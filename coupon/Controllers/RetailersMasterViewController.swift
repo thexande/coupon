@@ -68,23 +68,21 @@ class RetailersMasterViewController:
     
     // recieve voice text from speech input
     public func recieveVoiceText(voice: String) {
-        // load table view results from user speech string
         let trimmedVoice = voice.filter { $0 != Character(" ") }
         if(allRetailers == nil) {
             let realm = try! Realm()
             allRetailers = realm.objects(Retailer.self)
-            filteredRetailers = allRetailers?.filter(NSPredicate(format: "name CONTAINS[c] %@", voice))
+            filteredRetailers = allRetailers?.filter(NSPredicate(format: "name CONTAINS[c] %@", trimmedVoice))
             shouldShowSearchResults = true
         }
     }
     
     // DZNDataSource
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        let str = "No cars have matched your search. \n\n\n\n\n\n\n\n"
+        let str = "No retailers have matched your search. \n\n\n\n\n\n\n\n"
         let attrs = [NSFontAttributeName: UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)]
         return NSAttributedString(string: str, attributes: attrs)
     }
-    
     
     // UITableView Delegate and Datasource functions
     

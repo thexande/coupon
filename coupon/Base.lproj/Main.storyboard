@@ -159,6 +159,7 @@
                     <connections>
                         <outlet property="offerDescriptionLabel" destination="wvE-9j-MIE" id="X3O-aq-wx6"/>
                         <outlet property="offerImage" destination="2Cm-FG-TCd" id="Cwd-9u-Zxa"/>
+                        <outlet property="rewardTableView" destination="GIN-AW-vky" id="sRE-vR-GjS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Jd-Mk-SHT" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -19,11 +19,14 @@ class OfferDetailViewController:
     DZNEmptyDataSetDelegate {
     
     @IBOutlet weak var rewardTableView: UITableView!
-    @IBOutlet weak var offerDescriptionLabel: UILabel!
     @IBOutlet weak var offerImage: UIImageView!
+    @IBOutlet weak var offerCategoriesLabel: UILabel!
+    @IBOutlet weak var offerDescriptionLabel: UILabel!
     
     public var selectedOffer: Object?
     var allRewards: List<Reward>?
+    var selectedOfferCategories: List<Category>?
+    var selectedOfferCategoriesString: String?
     var selectedReward: Object?
     
     // no options alert
@@ -34,7 +37,14 @@ class OfferDetailViewController:
         setOfferImage()
         setOfferDescription()
         setNavTitle()
+        // get all rewards
         allRewards = selectedOffer?.value(forKey: "rewards") as! List<Reward>?
+        selectedOfferCategories = selectedOffer?.value(forKey: "categories") as! List<Category>?
+        
+        // set categories
+        selectedOfferCategoriesString = createCategoryString(categories: selectedOfferCategories!)
+        offerCategoriesLabel.text = selectedOfferCategoriesString
+        
         // set up table
         rewardTableView.register(UINib(nibName: "RewardTableViewCell", bundle: nil), forCellReuseIdentifier: "RewardCell")
         rewardTableView.delegate = self
@@ -63,6 +73,16 @@ class OfferDetailViewController:
     }
     
     // view data methods
+    func createCategoryString(categories: List<Category>) -> String {
+        var allCategoryString: String = ""
+        for category in categories {
+            var categoryString = category.value(forKey: "name") as! String
+            categoryString += " "
+            allCategoryString += categoryString
+        }
+        return allCategoryString
+    }
+    
     func setOfferImage() {
         let remoteImageURLString = selectedOffer?.value(forKey: "large_url")  as! String?
         if(remoteImageURLString != nil) {

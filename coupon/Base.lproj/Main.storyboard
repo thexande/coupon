@@ -132,7 +132,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvE-9j-MIE">
-                                            <rect key="frame" x="96" y="-12" width="0.0" height="0.0"/>
+                                            <rect key="frame" x="70" y="29" width="0.0" height="0.0"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -143,30 +143,80 @@
                                 <blurEffect style="light"/>
                             </visualEffectView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GIN-AW-vky">
-                                <rect key="frame" x="0.0" y="363" width="375" height="304"/>
+                                <rect key="frame" x="0.0" y="467" width="375" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Cm-FG-TCd">
-                                <rect key="frame" x="0.0" y="64" width="375" height="300"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="400"/>
                             </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Db-Ju-k71">
+                                <rect key="frame" x="0.0" y="267" width="375" height="200"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="9bR-jj-akr">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Offer Description Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gW-AM-Qjr">
+                                            <rect key="frame" x="0.0" y="10" width="375" height="60"/>
+                                            <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categories" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNZ-Th-fO5">
+                                            <rect key="frame" x="0.0" y="160" width="375" height="40"/>
+                                            <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYZ-FN-id8">
+                                            <rect key="frame" x="0.0" y="70" width="375" height="90"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="TNZ-Th-fO5" firstAttribute="top" secondItem="aYZ-FN-id8" secondAttribute="bottom" id="1QX-21-q2K"/>
+                                        <constraint firstAttribute="trailing" secondItem="aYZ-FN-id8" secondAttribute="trailing" id="2Od-yz-r7v"/>
+                                        <constraint firstItem="9gW-AM-Qjr" firstAttribute="height" secondItem="9bR-jj-akr" secondAttribute="height" multiplier="0.3" id="8OZ-0U-pz1"/>
+                                        <constraint firstItem="TNZ-Th-fO5" firstAttribute="height" secondItem="9bR-jj-akr" secondAttribute="height" multiplier="0.2" id="Hf5-BR-l2u"/>
+                                        <constraint firstItem="9gW-AM-Qjr" firstAttribute="top" secondItem="9bR-jj-akr" secondAttribute="top" constant="10" id="LL6-2T-FaI"/>
+                                        <constraint firstAttribute="trailing" secondItem="9gW-AM-Qjr" secondAttribute="trailing" id="Sip-2Q-n2v"/>
+                                        <constraint firstAttribute="trailing" secondItem="TNZ-Th-fO5" secondAttribute="trailing" id="dXQ-Ul-D9L"/>
+                                        <constraint firstItem="aYZ-FN-id8" firstAttribute="top" secondItem="9gW-AM-Qjr" secondAttribute="bottom" id="e7Q-6z-clW"/>
+                                        <constraint firstAttribute="bottom" secondItem="TNZ-Th-fO5" secondAttribute="bottom" id="jY1-SA-LQp"/>
+                                        <constraint firstItem="9gW-AM-Qjr" firstAttribute="leading" secondItem="9bR-jj-akr" secondAttribute="leading" id="mTd-lA-RGm"/>
+                                        <constraint firstItem="TNZ-Th-fO5" firstAttribute="leading" secondItem="9bR-jj-akr" secondAttribute="leading" id="nCC-2u-APF"/>
+                                        <constraint firstItem="aYZ-FN-id8" firstAttribute="leading" secondItem="9bR-jj-akr" secondAttribute="leading" id="yBi-EL-Owv"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" red="0.11270479110000001" green="0.76748389009999995" blue="0.64724779129999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.11270479110000001" green="0.76748389009999995" blue="0.64724779129999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="1Db-Ju-k71" secondAttribute="trailing" id="0AA-kL-Ped"/>
                             <constraint firstItem="2Cm-FG-TCd" firstAttribute="top" secondItem="chZ-21-Mq0" secondAttribute="bottom" id="FWh-7z-qY3"/>
                             <constraint firstItem="2Cm-FG-TCd" firstAttribute="leading" secondItem="ory-B8-7Q9" secondAttribute="leading" id="Gak-jD-VXC"/>
                             <constraint firstAttribute="trailing" secondItem="2Cm-FG-TCd" secondAttribute="trailing" id="P3o-ca-11w"/>
+                            <constraint firstItem="GIN-AW-vky" firstAttribute="top" secondItem="1Db-Ju-k71" secondAttribute="bottom" id="UZW-rp-IPf"/>
                             <constraint firstItem="7sV-Rx-ogc" firstAttribute="top" secondItem="GIN-AW-vky" secondAttribute="bottom" id="X8f-PL-FUQ"/>
+                            <constraint firstItem="1Db-Ju-k71" firstAttribute="height" secondItem="2Cm-FG-TCd" secondAttribute="height" multiplier="0.5" id="Y9M-xc-arF"/>
                             <constraint firstItem="GIN-AW-vky" firstAttribute="leading" secondItem="ory-B8-7Q9" secondAttribute="leading" id="asb-zS-vdY"/>
+                            <constraint firstAttribute="trailing" secondItem="1Db-Ju-k71" secondAttribute="trailing" id="e5o-Yc-VNS"/>
                             <constraint firstAttribute="trailing" secondItem="2Cm-FG-TCd" secondAttribute="trailing" id="g3G-Yz-3pE"/>
                             <constraint firstAttribute="trailing" secondItem="GIN-AW-vky" secondAttribute="trailing" id="gs8-a7-TPl"/>
-                            <constraint firstItem="GIN-AW-vky" firstAttribute="height" secondItem="ory-B8-7Q9" secondAttribute="height" multiplier="0.456" id="oDp-KP-YHx"/>
-                            <constraint firstItem="2Cm-FG-TCd" firstAttribute="height" secondItem="ory-B8-7Q9" secondAttribute="height" multiplier="0.45" id="tlM-yo-bZJ"/>
+                            <constraint firstItem="1Db-Ju-k71" firstAttribute="leading" secondItem="ory-B8-7Q9" secondAttribute="leading" id="lLw-zd-wmt"/>
+                            <constraint firstItem="1Db-Ju-k71" firstAttribute="leading" secondItem="ory-B8-7Q9" secondAttribute="leading" id="mG4-Xc-KuA"/>
+                            <constraint firstItem="1Db-Ju-k71" firstAttribute="width" secondItem="2Cm-FG-TCd" secondAttribute="width" id="mYs-oZ-B9y"/>
+                            <constraint firstItem="GIN-AW-vky" firstAttribute="height" secondItem="ory-B8-7Q9" secondAttribute="height" multiplier="0.3" id="oDp-KP-YHx"/>
+                            <constraint firstItem="2Cm-FG-TCd" firstAttribute="height" secondItem="ory-B8-7Q9" secondAttribute="height" multiplier="0.6" id="tlM-yo-bZJ"/>
                             <constraint firstItem="2Cm-FG-TCd" firstAttribute="leading" secondItem="ory-B8-7Q9" secondAttribute="leading" id="u6W-EF-HPe"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="offerDescriptionLabel" destination="wvE-9j-MIE" id="X3O-aq-wx6"/>
+                        <outlet property="offerCategoriesLabel" destination="TNZ-Th-fO5" id="jHP-Ms-GxL"/>
+                        <outlet property="offerDescriptionLabel" destination="9gW-AM-Qjr" id="Qdr-LK-g9e"/>
                         <outlet property="offerImage" destination="2Cm-FG-TCd" id="Cwd-9u-Zxa"/>
                         <outlet property="rewardTableView" destination="GIN-AW-vky" id="sRE-vR-GjS"/>
                         <segue destination="wT6-kY-xNM" kind="show" identifier="showRewardDetail" id="Fri-Qc-GYr"/>
@@ -174,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Jd-Mk-SHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2921" y="484"/>
+            <point key="canvasLocation" x="2920.8000000000002" y="483.50824587706148"/>
         </scene>
         <!--Reward Detail View Controller-->
         <scene sceneID="WNc-V0-dGz">

@@ -11,6 +11,36 @@ import SwiftyJSON
 import RealmSwift
 
 class OfferTranslatorHelper {
+    
+    static func createCategories(categoriesArray: [JSON], categoriesRealm: List<Category>) {
+        for category in categoriesArray {
+            let categoryObject = Category()
+            categoryObject.id = category["id"].intValue
+            categoryObject.name = category["name"].stringValue
+            categoryObject.sort_order = category["sort_order"].doubleValue
+            categoriesRealm.append(categoryObject)
+        }
+    }
+    
+    static func createRewards(rewardsArray: [JSON], rewardsRealm: List<Reward>) {
+        for reward in rewardsArray {
+            let rewardObject = Reward()
+            rewardObject.content = reward["content"].stringValue
+            let optionsArray = reward["options"].arrayValue
+            createOptions(optionsArray: optionsArray, optionsRealm: rewardObject.options)
+            rewardsRealm.append(rewardObject)
+        }
+    }
+    
+    static func createOptions(optionsArray: [JSON], optionsRealm: List<Option>) {
+        for option in optionsArray {
+            let optionObject = Option()
+            optionObject.content = option["content"].stringValue
+            optionObject.id = option["id"].intValue
+            optionsRealm.append(optionObject)
+        }
+    }
+    
     static func translateOffer(data: JSON?) -> [Offer]? {
         var offers = [Offer]()
         let realm = try! Realm()
@@ -28,30 +58,12 @@ class OfferTranslatorHelper {
             
             // create categories
             let categoriesArray = offerObject["categories"].arrayValue
-            for category in categoriesArray {
-                let categoryObject = Category()
-                categoryObject.id = category["id"].intValue
-                categoryObject.name = category["name"].stringValue
-                categoryObject.sort_order = category["sort_order"].doubleValue
-                offer.categories.append(categoryObject)
-            }
+            createCategories(categoriesArray: categoriesArray, categoriesRealm: offer.categories)
             
             // create rewards
             let rewardsArray = offerObject["rewards"].arrayValue
-            for reward in rewardsArray {
-                let rewardObject = Reward()
-                rewardObject.content = reward["content"].stringValue
-                
-                // create options
-                let optionsArray = reward["options"].arrayValue
-                for option in optionsArray {
-                    let optionObject = Option()
-                    optionObject.content = option["content"].stringValue
-                    optionObject.id = option["id"].intValue
-                    rewardObject.options.append(optionObject)
-                }
-                offer.rewards.append(rewardObject)
-            }
+            createRewards(rewardsArray: rewardsArray, rewardsRealm: offer.rewards)
+            
             
             let retailerIds = offerObject["retailers"].arrayValue.map { $0.intValue }
                 let predicate = NSPredicate(format: "id IN %@", retailerIds)

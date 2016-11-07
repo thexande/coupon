@@ -34,7 +34,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="RETAILERS" id="T9L-rT-87I"/>
+                    <navigationItem key="navigationItem" title="RETAILERS" id="T9L-rT-87I">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="27D-Ym-e3i">
+                            <connections>
+                                <segue destination="dPa-An-dEg" kind="presentation" id="zcM-KO-h7I"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="retailerTableView" destination="eO6-CV-y4N" id="296-fg-E7u"/>
                         <outlet property="searchView" destination="dK3-NB-2xn" id="fQq-mP-wwb"/>
@@ -105,7 +111,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ryy-0X-55i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2024.8" y="107.49625187406298"/>
+            <point key="canvasLocation" x="2023" y="107"/>
         </scene>
         <!--Offer Detail View Controller-->
         <scene sceneID="a6h-Bm-avl">
@@ -124,6 +130,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Jd-Mk-SHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2874" y="398"/>
+        </scene>
+        <!--Speech Search View Controller-->
+        <scene sceneID="kMe-1W-z04">
+            <objects>
+                <viewController id="dPa-An-dEg" customClass="SpeechSearchViewController" customModule="coupon" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NMv-ZV-JtK"/>
+                        <viewControllerLayoutGuide type="bottom" id="c9d-lc-8nZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ufs-Qq-s0a">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="touch_up" translatesAutoresizingMaskIntoConstraints="NO" id="8c7-ig-VFE">
+                                <rect key="frame" x="87" y="230" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2Z-PE-xif">
+                                <rect key="frame" x="42" y="64" width="291" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SyN-eV-1CQ">
+                                <rect key="frame" x="87" y="230" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="searchButtonTouchDown:" destination="dPa-An-dEg" eventType="touchDown" id="Axc-AN-UM7"/>
+                                    <action selector="searchButtonTouchUpInside:" destination="dPa-An-dEg" eventType="touchUpInside" id="67s-9c-A60"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.11270479110000001" green="0.76748389009999995" blue="0.64724779129999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="searchButton" destination="SyN-eV-1CQ" id="HC6-Uv-iRc"/>
+                        <outlet property="searchButtonImage" destination="8c7-ig-VFE" id="E6l-xY-EZ3"/>
+                        <outlet property="textView" destination="B2Z-PE-xif" id="b8h-GH-4qE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hLd-QE-caL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2023.2" y="-580.65967016491754"/>
         </scene>
         <!--Locations View Controller-->
         <scene sceneID="ZlM-IA-ml3">
@@ -201,4 +251,7 @@
             <point key="canvasLocation" x="76" y="107"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="touch_up" width="810" height="810"/>
+    </resources>
 </document>

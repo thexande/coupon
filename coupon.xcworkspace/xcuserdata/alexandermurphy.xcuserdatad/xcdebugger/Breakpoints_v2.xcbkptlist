@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "coupon/Helpers/Realm/OfferTranslatorHelper.swift"
-            timestampString = "500074674.09333"
+            timestampString = "500167520.959612"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "translateOffer(data:)"
             landmarkType = "7">
             <Locations>

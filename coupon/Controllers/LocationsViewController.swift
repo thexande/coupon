@@ -17,6 +17,7 @@ class LocationsViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     public var retailerLocations: List<Location>?
     private let locManager = CLLocationManager()
     private var userLocation: CLLocationCoordinate2D?
+    var retailerName: String?
     
     @IBOutlet weak var locationsMapView: MKMapView!
     
@@ -51,6 +52,9 @@ class LocationsViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         configureUserLocation()
         //plot locations
         plotRetailers(locations: retailerLocations!)
+        // style view
+        retailerName = selectedRetailer!.value(forKey: "name") as? String
+        self.title = retailerName?.uppercased()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -99,7 +103,7 @@ class LocationsViewController: UIViewController, MKMapViewDelegate, CLLocationMa
             let locationLatitude = location["latitude"] as! Double
             let locationLongitude = location["longitude"] as! Double
             let locationTitle = selectedRetailer["name"] as! String
-            let annotaiton = LocationAnnotation(title: locationTitle, subtitle: "woot", coordinate: CLLocationCoordinate2D(latitude: locationLatitude, longitude: locationLongitude))
+            let annotaiton = LocationAnnotation(title: locationTitle, subtitle: locationTitle, coordinate: CLLocationCoordinate2D(latitude: locationLatitude, longitude: locationLongitude))
             locationsMapView.addAnnotation(annotaiton)
         }
         

@@ -22,12 +22,16 @@ class OfferDetailViewController:
     @IBOutlet weak var offerImage: UIImageView!
     @IBOutlet weak var offerCategoriesLabel: UILabel!
     @IBOutlet weak var offerDescriptionLabel: UILabel!
+    @IBOutlet weak var offerStartedLabel: UILabel!
+    @IBOutlet weak var offerEndedLabel: UILabel!
     
     public var selectedOffer: Object?
     var allRewards: List<Reward>?
     var selectedOfferCategories: List<Category>?
     var selectedOfferCategoriesString: String?
     var selectedReward: Object?
+    var selectedOfferStart: String?
+    var selectedOfferEnd: String?
     
     // no options alert
     let noOptionAlert = UIAlertController(title: "No Options Available", message: "Sorry, no options are available for the selected reward.", preferredStyle: UIAlertControllerStyle.alert)
@@ -44,6 +48,9 @@ class OfferDetailViewController:
         // set categories
         selectedOfferCategoriesString = createCategoryString(categories: selectedOfferCategories!)
         offerCategoriesLabel.text = selectedOfferCategoriesString
+        
+        // set start and end labels
+        parseOfferDateRange(offer: selectedOffer!, startLabel: offerStartedLabel, endLabel: offerEndedLabel)
         
         // set up table
         rewardTableView.register(UINib(nibName: "RewardTableViewCell", bundle: nil), forCellReuseIdentifier: "RewardCell")
@@ -73,8 +80,17 @@ class OfferDetailViewController:
     }
     
     // view data methods
+    func parseOfferDateRange(offer: Object, startLabel: UILabel, endLabel: UILabel) {
+        var startString = "Offer Begins: "
+        startString += offer.value(forKey: "launched_at") as! String
+        var endString = "Offer Ends: "
+        endString += offer.value(forKey: "expiration") as! String
+        startLabel.text = startString
+        endLabel.text = endString
+    }
+    
     func createCategoryString(categories: List<Category>) -> String {
-        var allCategoryString: String = ""
+        var allCategoryString: String = "Categories: "
         for category in categories {
             var categoryString = category.value(forKey: "name") as! String
             categoryString += " "

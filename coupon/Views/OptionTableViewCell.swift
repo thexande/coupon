@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import RealmSwift
 
 class OptionTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var optionLabel: UILabel!
+    
+    var option: Object?
+    var optionContent: String?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -17,8 +23,11 @@ class OptionTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        if(option?.value(forKey: "content") as? String == nil) {
+            optionContent = "No Option Title"
+        } else {
+            optionContent = option?.value(forKey: "content") as? String
+        }
+        optionLabel.text = optionContent
     }
-    
 }

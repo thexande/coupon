@@ -45,6 +45,7 @@
 		B069D3E51DCFE537004EBF13 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069D3E41DCFE537004EBF13 /* Option.swift */; };
 		B083F8761DCFEE5900EAE2AC /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B083F8751DCFEE5900EAE2AC /* Category.swift */; };
 		B083F8781DCFF9CA00EAE2AC /* SpeechSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B083F8771DCFF9CA00EAE2AC /* SpeechSearchViewController.swift */; };
+		B083F87B1DD0009E00EAE2AC /* StringFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B083F87A1DD0009E00EAE2AC /* StringFilter.swift */; };
 		BC16E86EF8DA5AB3F661DA14 /* Pods_coupon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F43CED56337DE44F7D5EECF /* Pods_coupon.framework */; };
 		CF148B399B17F67663382A39 /* Pods_couponUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703C22EDCAE20C7A0A07D87E /* Pods_couponUITests.framework */; };
 /* End PBXBuildFile section */
@@ -116,6 +117,7 @@
 		B069D3E41DCFE537004EBF13 /* Option.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Option.swift; path = Models/Option.swift; sourceTree = "<group>"; };
 		B083F8751DCFEE5900EAE2AC /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Category.swift; path = Models/Category.swift; sourceTree = "<group>"; };
 		B083F8771DCFF9CA00EAE2AC /* SpeechSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeechSearchViewController.swift; path = Controllers/SpeechSearchViewController.swift; sourceTree = "<group>"; };
+		B083F87A1DD0009E00EAE2AC /* StringFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringFilter.swift; path = Extensions/StringFilter.swift; sourceTree = "<group>"; };
 		D9DA6F54115467ABF7554BBA /* Pods-couponUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-couponUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-couponUITests/Pods-couponUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F9E68CE6763F35ED723C6A88 /* Pods-couponTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-couponTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-couponTests/Pods-couponTests.release.xcconfig"; sourceTree = "<group>"; };
 		FC47DAD94F49C0724506AF9E /* Pods-coupon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coupon.release.xcconfig"; path = "Pods/Target Support Files/Pods-coupon/Pods-coupon.release.xcconfig"; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 		B0204C251DCE4549009703B2 /* coupon */ = {
 			isa = PBXGroup;
 			children = (
+				B083F8791DD0007C00EAE2AC /* Extensions */,
 				B069D3BF1DCE8D14004EBF13 /* Supporting */,
 				B069D3BE1DCE8CFD004EBF13 /* Application */,
 				B0204C671DCE5472009703B2 /* JSON */,
@@ -315,6 +318,14 @@
 				B069D3C51DCE9855004EBF13 /* CustomSearchBar.swift */,
 			);
 			name = SearchControllers;
+			sourceTree = "<group>";
+		};
+		B083F8791DD0007C00EAE2AC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B083F87A1DD0009E00EAE2AC /* StringFilter.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		C013BF58D6F29BF29603A519 /* Pods */ = {
@@ -628,6 +639,7 @@
 				B069D3DC1DCFC6E9004EBF13 /* OfferDetailViewController.swift in Sources */,
 				B069D3CB1DCEB8A9004EBF13 /* RetailerTableViewCell.swift in Sources */,
 				B0204C7D1DCE5F92009703B2 /* RetailerTranslatorHelper.swift in Sources */,
+				B083F87B1DD0009E00EAE2AC /* StringFilter.swift in Sources */,
 				B083F8761DCFEE5900EAE2AC /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

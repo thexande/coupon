@@ -79,13 +79,13 @@ class SpeechSearchViewController: UIViewController, SFSpeechRecognizerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if (segue.identifier == "showResults") {
-//            let destination = segue.destination as! RootNavigationViewController
-//            let carVc = destination.topViewController as! CarComponentViewController
-//            carVc.recieveVoiceText(voice: self.userSpeechString!.trimmingCharacters(in: .whitespaces))
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "showResults") {
+            let destination = segue.destination as! UINavigationController
+            let retailerVC = destination.topViewController as! RetailersMasterViewController
+            retailerVC.recieveVoiceText(voice: self.userSpeechString!.trimmingCharacters(in: .whitespaces))
+        }
+    }
     
     // [START speech recognition helper methods]
     private func prepareRecognizer(locale: Locale) {
@@ -119,14 +119,13 @@ class SpeechSearchViewController: UIViewController, SFSpeechRecognizerDelegate {
             var isFinal = false
             
             if let result = result {
-                self.textView.text = result.bestTranscription.formattedString.uppercased()
-                self.userSpeechString = result.bestTranscription.formattedString.uppercased()
+                self.textView.text = result.bestTranscription.formattedString.lowercased()
+                self.userSpeechString = result.bestTranscription.formattedString.lowercased()
                 isFinal = result.isFinal
                 
                 if(isFinal == true) {
-                    // attempt to parse binary choices from user input
-                    print("woot")
-                    //self.performSegue(withIdentifier: "showResults", sender: self)
+                    // segue back to retailers with speech data
+                    self.performSegue(withIdentifier: "showResults", sender: self)
                 }
             }
             if error != nil || isFinal {

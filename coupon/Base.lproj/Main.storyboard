@@ -169,11 +169,12 @@
                         <outlet property="searchButton" destination="SyN-eV-1CQ" id="HC6-Uv-iRc"/>
                         <outlet property="searchButtonImage" destination="8c7-ig-VFE" id="E6l-xY-EZ3"/>
                         <outlet property="textView" destination="B2Z-PE-xif" id="b8h-GH-4qE"/>
+                        <segue destination="1Ft-kv-QqR" kind="presentation" identifier="showResults" id="KIg-St-22y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hLd-QE-caL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2023.2" y="-580.65967016491754"/>
+            <point key="canvasLocation" x="1996" y="-654"/>
         </scene>
         <!--Locations View Controller-->
         <scene sceneID="ZlM-IA-ml3">
@@ -254,4 +255,7 @@
     <resources>
         <image name="touch_up" width="810" height="810"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="KIg-St-22y"/>
+    </inferredMetricsTieBreakers>
 </document>

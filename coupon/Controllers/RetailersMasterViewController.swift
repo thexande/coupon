@@ -50,6 +50,8 @@ class RetailersMasterViewController:
         // Do any additional setup after loading the view.
         // Our custom search bar configuration
         configureCustomSearchController()
+        // Reload the tableview.
+        retailerTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,7 +66,19 @@ class RetailersMasterViewController:
         }
     }
     
-    // MARK: DZNDataSource
+    // recieve voice text from speech input
+    public func recieveVoiceText(voice: String) {
+        // load table view results from user speech string
+        let trimmedVoice = voice.filter { $0 != Character(" ") }
+        if(allRetailers == nil) {
+            let realm = try! Realm()
+            allRetailers = realm.objects(Retailer.self)
+            filteredRetailers = allRetailers?.filter(NSPredicate(format: "name CONTAINS[c] %@", voice))
+            shouldShowSearchResults = true
+        }
+    }
+    
+    // DZNDataSource
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
         let str = "No cars have matched your search. \n\n\n\n\n\n\n\n"
         let attrs = [NSFontAttributeName: UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)]
@@ -72,7 +86,7 @@ class RetailersMasterViewController:
     }
     
     
-    // MARK: UITableView Delegate and Datasource functions
+    // UITableView Delegate and Datasource functions
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -147,7 +161,7 @@ class RetailersMasterViewController:
     }
     
     func didChangeSearchText(_ searchText: String) {
-        filteredRetailers = allRetailers?.filter(NSPredicate(format: "name CONTAINS %@", searchText))
+        filteredRetailers = allRetailers?.filter(NSPredicate(format: "name CONTAINS[c] %@", searchText))
         // Reload the tableview.
         retailerTableView.reloadData()
     }

@@ -119,8 +119,8 @@ class SpeechSearchViewController: UIViewController, SFSpeechRecognizerDelegate {
             var isFinal = false
             
             if let result = result {
-                self.textView.text = result.bestTranscription.formattedString.lowercased()
-                self.userSpeechString = result.bestTranscription.formattedString.lowercased()
+                self.textView.text = result.bestTranscription.formattedString.uppercased()
+                self.userSpeechString = result.bestTranscription.formattedString.uppercased()
                 isFinal = result.isFinal
                 
                 if(isFinal == true) {

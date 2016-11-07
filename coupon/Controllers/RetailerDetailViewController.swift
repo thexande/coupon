@@ -179,7 +179,7 @@ class RetailerDetailViewController:
     }
     
     func didChangeSearchText(_ searchText: String) {
-        filteredOffers = allOffers?.filter(NSPredicate(format: "name CONTAINS %@", searchText))
+        filteredOffers = allOffers?.filter(NSPredicate(format: "name CONTAINS[c] %@", searchText))
         // Reload the tableview.
         offerTableView.reloadData()
     }

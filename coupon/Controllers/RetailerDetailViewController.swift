@@ -48,7 +48,7 @@ class RetailerDetailViewController:
         super.viewDidLoad()
         // set nav bar title
         selectedRetailerName = selectedRetailer?.value(forKey: "name") as! String?
-        self.title = selectedRetailerName
+        self.title = selectedRetailerName?.uppercased()
         //configure alert
         noLocationAlert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
         // set banner image

@@ -54,7 +54,7 @@ class LocationsViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         plotRetailers(locations: retailerLocations!)
         // style view
         retailerName = selectedRetailer!.value(forKey: "name") as? String
-        self.title = retailerName?.uppercased()
+        self.title = (retailerName?.uppercased())! + " LOCATIONS"
     }
     
     override func viewDidAppear(_ animated: Bool) {

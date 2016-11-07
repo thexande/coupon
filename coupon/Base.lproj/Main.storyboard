@@ -169,11 +169,45 @@
                         <outlet property="offerDescriptionLabel" destination="wvE-9j-MIE" id="X3O-aq-wx6"/>
                         <outlet property="offerImage" destination="2Cm-FG-TCd" id="Cwd-9u-Zxa"/>
                         <outlet property="rewardTableView" destination="GIN-AW-vky" id="sRE-vR-GjS"/>
+                        <segue destination="wT6-kY-xNM" kind="show" identifier="showRewardDetail" id="Fri-Qc-GYr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Jd-Mk-SHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2921" y="484"/>
+        </scene>
+        <!--Reward Detail View Controller-->
+        <scene sceneID="WNc-V0-dGz">
+            <objects>
+                <viewController id="wT6-kY-xNM" customClass="RewardDetailViewController" customModule="coupon" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TNi-A6-GqH"/>
+                        <viewControllerLayoutGuide type="bottom" id="Azp-er-KX4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hoW-hV-wsI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LYX-jx-YMb">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Azp-er-KX4" firstAttribute="top" secondItem="LYX-jx-YMb" secondAttribute="bottom" id="90i-fe-15p"/>
+                            <constraint firstItem="LYX-jx-YMb" firstAttribute="top" secondItem="hoW-hV-wsI" secondAttribute="top" id="f9W-hL-NoC"/>
+                            <constraint firstAttribute="trailing" secondItem="LYX-jx-YMb" secondAttribute="trailing" id="l6E-sr-4T6"/>
+                            <constraint firstItem="LYX-jx-YMb" firstAttribute="leading" secondItem="hoW-hV-wsI" secondAttribute="leading" id="z9W-A0-ehP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="optionTableView" destination="LYX-jx-YMb" id="IKx-iS-Lin"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BRa-dS-6yX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3744.8000000000002" y="483.50824587706148"/>
         </scene>
         <!--Speech Search View Controller-->
         <scene sceneID="kMe-1W-z04">

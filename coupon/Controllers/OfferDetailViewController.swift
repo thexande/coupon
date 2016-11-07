@@ -24,9 +24,10 @@ class OfferDetailViewController:
     
     public var selectedOffer: Object?
     var allRewards: List<Reward>?
+    var selectedReward: Object?
     
     // no options alert
-    let noLocationAlert = UIAlertController(title: "No Options Available", message: "Sorry, no options are available for the selected reward.", preferredStyle: UIAlertControllerStyle.alert)
+    let noOptionAlert = UIAlertController(title: "No Options Available", message: "Sorry, no options are available for the selected reward.", preferredStyle: UIAlertControllerStyle.alert)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,15 +44,22 @@ class OfferDetailViewController:
         //empty data set
         rewardTableView.emptyDataSetSource = self
         rewardTableView.emptyDataSetDelegate = self
+        rewardTableView.reloadData()
         
-        
-        rewardTableView.rowHeight = UITableViewAutomaticDimension
-        rewardTableView.estimatedRowHeight = 300
+        //configure alert
+        noOptionAlert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "showRewardDetail") {
+            let destination = segue.destination as! RewardDetailViewController
+            destination.selectedReward = selectedReward
+        }
     }
     
     // view data methods
@@ -91,27 +99,24 @@ class OfferDetailViewController:
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RewardCell", for: indexPath) as! RewardTableViewCell
-
-        print(self.allRewards?[indexPath.row])
-        
         let currentReward = self.allRewards?[indexPath.row]
-        
         cell.reward = currentReward
-       
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        selectedOffer = allRewards?[indexPath.row]
-        self.performSegue(withIdentifier: "showOfferDetail", sender: self)
+        selectedReward = allRewards?[indexPath.row]
+        let selectedRewardOffers = selectedReward?["options"] as! List<Option>
+        
+        if(selectedRewardOffers.count == 0){
+            self.present(noOptionAlert, animated: true, completion: nil)
+        } else {
+        self.performSegue(withIdentifier: "showRewardDetail", sender: self)
+        }
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableViewAutomaticDimension
-//    }
-//    
-//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableViewAutomaticDimension
-//    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 }
